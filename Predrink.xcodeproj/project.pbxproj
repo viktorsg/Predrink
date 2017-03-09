@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		77F5B0781E717DD500802904 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B0771E717DD500802904 /* main.m */; };
+		77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B07A1E717DD500802904 /* AppDelegate.m */; };
+		77F5B07E1E717DD500802904 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B07D1E717DD500802904 /* ViewController.m */; };
+		77F5B0811E717DD500802904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B07F1E717DD500802904 /* Main.storyboard */; };
+		77F5B0831E717DD500802904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B0821E717DD500802904 /* Assets.xcassets */; };
+		77F5B0861E717DD500802904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B0841E717DD500802904 /* LaunchScreen.storyboard */; };
+		77F5B0911E717DD500802904 /* PredrinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B0901E717DD500802904 /* PredrinkTests.m */; };
+		77F5B09C1E717DD500802904 /* PredrinkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B09B1E717DD500802904 /* PredrinkUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		77F5B08D1E717DD500802904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77F5B06B1E717DD400802904 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77F5B0721E717DD400802904;
+			remoteInfo = Predrink;
+		};
+		77F5B0981E717DD500802904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77F5B06B1E717DD400802904 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77F5B0721E717DD400802904;
+			remoteInfo = Predrink;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		77F5B0731E717DD500802904 /* Predrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Predrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F5B0771E717DD500802904 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		77F5B0791E717DD500802904 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		77F5B07A1E717DD500802904 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		77F5B07C1E717DD500802904 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		77F5B07D1E717DD500802904 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		77F5B0801E717DD500802904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		77F5B0821E717DD500802904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77F5B0851E717DD500802904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		77F5B0871E717DD500802904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F5B08C1E717DD500802904 /* PredrinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PredrinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F5B0901E717DD500802904 /* PredrinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PredrinkTests.m; sourceTree = "<group>"; };
+		77F5B0921E717DD500802904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F5B0971E717DD500802904 /* PredrinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PredrinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77F5B09B1E717DD500802904 /* PredrinkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PredrinkUITests.m; sourceTree = "<group>"; };
+		77F5B09D1E717DD500802904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77F5B0701E717DD400802904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F5B0891E717DD500802904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F5B0941E717DD500802904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		77F5B06A1E717DD400802904 = {
+			isa = PBXGroup;
+			children = (
+				77F5B0751E717DD500802904 /* Predrink */,
+				77F5B08F1E717DD500802904 /* PredrinkTests */,
+				77F5B09A1E717DD500802904 /* PredrinkUITests */,
+				77F5B0741E717DD500802904 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		77F5B0741E717DD500802904 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77F5B0731E717DD500802904 /* Predrink.app */,
+				77F5B08C1E717DD500802904 /* PredrinkTests.xctest */,
+				77F5B0971E717DD500802904 /* PredrinkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		77F5B0751E717DD500802904 /* Predrink */ = {
+			isa = PBXGroup;
+			children = (
+				77F5B0791E717DD500802904 /* AppDelegate.h */,
+				77F5B07A1E717DD500802904 /* AppDelegate.m */,
+				77F5B07C1E717DD500802904 /* ViewController.h */,
+				77F5B07D1E717DD500802904 /* ViewController.m */,
+				77F5B07F1E717DD500802904 /* Main.storyboard */,
+				77F5B0821E717DD500802904 /* Assets.xcassets */,
+				77F5B0841E717DD500802904 /* LaunchScreen.storyboard */,
+				77F5B0871E717DD500802904 /* Info.plist */,
+				77F5B0761E717DD500802904 /* Supporting Files */,
+			);
+			path = Predrink;
+			sourceTree = "<group>";
+		};
+		77F5B0761E717DD500802904 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				77F5B0771E717DD500802904 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		77F5B08F1E717DD500802904 /* PredrinkTests */ = {
+			isa = PBXGroup;
+			children = (
+				77F5B0901E717DD500802904 /* PredrinkTests.m */,
+				77F5B0921E717DD500802904 /* Info.plist */,
+			);
+			path = PredrinkTests;
+			sourceTree = "<group>";
+		};
+		77F5B09A1E717DD500802904 /* PredrinkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				77F5B09B1E717DD500802904 /* PredrinkUITests.m */,
+				77F5B09D1E717DD500802904 /* Info.plist */,
+			);
+			path = PredrinkUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		77F5B0721E717DD400802904 /* Predrink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77F5B0A01E717DD500802904 /* Build configuration list for PBXNativeTarget "Predrink" */;
+			buildPhases = (
+				77F5B06F1E717DD400802904 /* Sources */,
+				77F5B0701E717DD400802904 /* Frameworks */,
+				77F5B0711E717DD400802904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Predrink;
+			productName = Predrink;
+			productReference = 77F5B0731E717DD500802904 /* Predrink.app */;
+			productType = "com.apple.product-type.application";
+		};
+		77F5B08B1E717DD500802904 /* PredrinkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77F5B0A31E717DD500802904 /* Build configuration list for PBXNativeTarget "PredrinkTests" */;
+			buildPhases = (
+				77F5B0881E717DD500802904 /* Sources */,
+				77F5B0891E717DD500802904 /* Frameworks */,
+				77F5B08A1E717DD500802904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77F5B08E1E717DD500802904 /* PBXTargetDependency */,
+			);
+			name = PredrinkTests;
+			productName = PredrinkTests;
+			productReference = 77F5B08C1E717DD500802904 /* PredrinkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		77F5B0961E717DD500802904 /* PredrinkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77F5B0A61E717DD500802904 /* Build configuration list for PBXNativeTarget "PredrinkUITests" */;
+			buildPhases = (
+				77F5B0931E717DD500802904 /* Sources */,
+				77F5B0941E717DD500802904 /* Frameworks */,
+				77F5B0951E717DD500802904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77F5B0991E717DD500802904 /* PBXTargetDependency */,
+			);
+			name = PredrinkUITests;
+			productName = PredrinkUITests;
+			productReference = 77F5B0971E717DD500802904 /* PredrinkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77F5B06B1E717DD400802904 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Viktor Georgiev";
+				TargetAttributes = {
+					77F5B0721E717DD400802904 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					77F5B08B1E717DD500802904 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 77F5B0721E717DD400802904;
+					};
+					77F5B0961E717DD500802904 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 77F5B0721E717DD400802904;
+					};
+				};
+			};
+			buildConfigurationList = 77F5B06E1E717DD400802904 /* Build configuration list for PBXProject "Predrink" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 77F5B06A1E717DD400802904;
+			productRefGroup = 77F5B0741E717DD500802904 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				77F5B0721E717DD400802904 /* Predrink */,
+				77F5B08B1E717DD500802904 /* PredrinkTests */,
+				77F5B0961E717DD500802904 /* PredrinkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77F5B0711E717DD400802904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F5B0861E717DD500802904 /* LaunchScreen.storyboard in Resources */,
+				77F5B0831E717DD500802904 /* Assets.xcassets in Resources */,
+				77F5B0811E717DD500802904 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F5B08A1E717DD500802904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F5B0951E717DD500802904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		77F5B06F1E717DD400802904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F5B07E1E717DD500802904 /* ViewController.m in Sources */,
+				77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */,
+				77F5B0781E717DD500802904 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F5B0881E717DD500802904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F5B0911E717DD500802904 /* PredrinkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77F5B0931E717DD500802904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F5B09C1E717DD500802904 /* PredrinkUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		77F5B08E1E717DD500802904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77F5B0721E717DD400802904 /* Predrink */;
+			targetProxy = 77F5B08D1E717DD500802904 /* PBXContainerItemProxy */;
+		};
+		77F5B0991E717DD500802904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77F5B0721E717DD400802904 /* Predrink */;
+			targetProxy = 77F5B0981E717DD500802904 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		77F5B07F1E717DD500802904 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77F5B0801E717DD500802904 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		77F5B0841E717DD500802904 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77F5B0851E717DD500802904 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		77F5B09E1E717DD500802904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		77F5B09F1E717DD500802904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		77F5B0A11E717DD500802904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Predrink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.Predrink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		77F5B0A21E717DD500802904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Predrink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.Predrink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		77F5B0A41E717DD500802904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PredrinkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.PredrinkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Predrink.app/Predrink";
+			};
+			name = Debug;
+		};
+		77F5B0A51E717DD500802904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PredrinkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.PredrinkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Predrink.app/Predrink";
+			};
+			name = Release;
+		};
+		77F5B0A71E717DD500802904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PredrinkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.PredrinkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Predrink;
+			};
+			name = Debug;
+		};
+		77F5B0A81E717DD500802904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PredrinkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.PredrinkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Predrink;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77F5B06E1E717DD400802904 /* Build configuration list for PBXProject "Predrink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F5B09E1E717DD500802904 /* Debug */,
+				77F5B09F1E717DD500802904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77F5B0A01E717DD500802904 /* Build configuration list for PBXNativeTarget "Predrink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F5B0A11E717DD500802904 /* Debug */,
+				77F5B0A21E717DD500802904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		77F5B0A31E717DD500802904 /* Build configuration list for PBXNativeTarget "PredrinkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F5B0A41E717DD500802904 /* Debug */,
+				77F5B0A51E717DD500802904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		77F5B0A61E717DD500802904 /* Build configuration list for PBXNativeTarget "PredrinkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F5B0A71E717DD500802904 /* Debug */,
+				77F5B0A81E717DD500802904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 77F5B06B1E717DD400802904 /* Project object */;
+}
