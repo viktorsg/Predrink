@@ -13,12 +13,12 @@
         <scene sceneID="UnO-uz-Pqt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RCG-ol-gYI" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mH9-e4-iwn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mH9-e4-iwn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="z0c-M4-lZi" kind="relationship" relationship="rootViewController" id="l36-4x-y4a"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1sg-lS-yE4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsG-8x-MN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFn-gd-TV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="90"/>
+            <point key="canvasLocation" x="687" y="90"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -57,10 +57,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8ML-yN-9CU"/>
+                    <connections>
+                        <segue destination="z0c-M4-lZi" kind="show" identifier="HomeSegue" id="sAM-Sn-0MA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-305" y="-624"/>
+            <point key="canvasLocation" x="-271" y="90"/>
         </scene>
     </scenes>
 </document>
