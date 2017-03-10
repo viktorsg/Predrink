@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77771BD61E72A91900A26AD9 /* LoginViewController.m */; };
+		77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EAF3F91E72E28F00B796F9 /* HomeViewController.m */; };
 		77F5B0781E717DD500802904 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B0771E717DD500802904 /* main.m */; };
 		77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B07A1E717DD500802904 /* AppDelegate.m */; };
 		77F5B0811E717DD500802904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B07F1E717DD500802904 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		77F5B0861E717DD500802904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B0841E717DD500802904 /* LaunchScreen.storyboard */; };
 		77F5B0911E717DD500802904 /* PredrinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B0901E717DD500802904 /* PredrinkTests.m */; };
 		77F5B09C1E717DD500802904 /* PredrinkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B09B1E717DD500802904 /* PredrinkUITests.m */; };
+		B78623077A34A875811095B6 /* libPods-Predrink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58DBA3E533C35C0B0AE73DC /* libPods-Predrink.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E3442D93CD19F2E7A84EDC8 /* Pods-Predrink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predrink.release.xcconfig"; path = "Pods/Target Support Files/Pods-Predrink/Pods-Predrink.release.xcconfig"; sourceTree = "<group>"; };
 		77771BD51E72A91900A26AD9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77771BD61E72A91900A26AD9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		77EAF3F81E72E28F00B796F9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		77EAF3F91E72E28F00B796F9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77F5B0731E717DD500802904 /* Predrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Predrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F5B0771E717DD500802904 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77F5B0791E717DD500802904 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +56,8 @@
 		77F5B0971E717DD500802904 /* PredrinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PredrinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F5B09B1E717DD500802904 /* PredrinkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PredrinkUITests.m; sourceTree = "<group>"; };
 		77F5B09D1E717DD500802904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88281A5A69D3671C0F26459E /* Pods-Predrink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predrink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Predrink/Pods-Predrink.debug.xcconfig"; sourceTree = "<group>"; };
+		B58DBA3E533C35C0B0AE73DC /* libPods-Predrink.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Predrink.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78623077A34A875811095B6 /* libPods-Predrink.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		454E274830D6475BE0A64E96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88281A5A69D3671C0F26459E /* Pods-Predrink.debug.xcconfig */,
+				3E3442D93CD19F2E7A84EDC8 /* Pods-Predrink.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		77F5B06A1E717DD400802904 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +102,8 @@
 				77F5B08F1E717DD500802904 /* PredrinkTests */,
 				77F5B09A1E717DD500802904 /* PredrinkUITests */,
 				77F5B0741E717DD500802904 /* Products */,
+				454E274830D6475BE0A64E96 /* Pods */,
+				D8DABCE78F3526C49483B1E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +124,8 @@
 				77F5B07A1E717DD500802904 /* AppDelegate.m */,
 				77771BD51E72A91900A26AD9 /* LoginViewController.h */,
 				77771BD61E72A91900A26AD9 /* LoginViewController.m */,
+				77EAF3F81E72E28F00B796F9 /* HomeViewController.h */,
+				77EAF3F91E72E28F00B796F9 /* HomeViewController.m */,
 				77F5B07F1E717DD500802904 /* Main.storyboard */,
 				77F5B0821E717DD500802904 /* Assets.xcassets */,
 				77F5B0841E717DD500802904 /* LaunchScreen.storyboard */,
@@ -140,6 +161,14 @@
 			path = PredrinkUITests;
 			sourceTree = "<group>";
 		};
+		D8DABCE78F3526C49483B1E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B58DBA3E533C35C0B0AE73DC /* libPods-Predrink.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77F5B0A01E717DD500802904 /* Build configuration list for PBXNativeTarget "Predrink" */;
 			buildPhases = (
+				B008421B4D13DAF4E806236D /* [CP] Check Pods Manifest.lock */,
 				77F5B06F1E717DD400802904 /* Sources */,
 				77F5B0701E717DD400802904 /* Frameworks */,
 				77F5B0711E717DD400802904 /* Resources */,
+				3A9C367284D84F25C7B1B171 /* [CP] Embed Pods Frameworks */,
+				3EFF4C786023DDC45C797193 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,6 +300,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A9C367284D84F25C7B1B171 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Predrink/Pods-Predrink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EFF4C786023DDC45C797193 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Predrink/Pods-Predrink-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B008421B4D13DAF4E806236D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		77F5B06F1E717DD400802904 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -276,6 +356,7 @@
 				77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */,
 				77F5B0781E717DD500802904 /* main.m in Sources */,
 				77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */,
+				77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +503,7 @@
 		};
 		77F5B0A11E717DD500802904 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88281A5A69D3671C0F26459E /* Pods-Predrink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Predrink/Info.plist;
@@ -433,6 +515,7 @@
 		};
 		77F5B0A21E717DD500802904 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3442D93CD19F2E7A84EDC8 /* Pods-Predrink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Predrink/Info.plist;
