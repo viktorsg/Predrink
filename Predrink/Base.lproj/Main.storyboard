@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +14,7 @@
         <scene sceneID="UnO-uz-Pqt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RCG-ol-gYI" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mH9-e4-iwn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mH9-e4-iwn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -36,9 +37,44 @@
                     <view key="view" contentMode="scaleToFill" id="wrT-lh-g6j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEw-OQ-hR2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="X0F-YO-DJ3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUp-yI-pLy" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="40" width="375" height="577"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsJ-VE-6fQ">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5CY-Dm-ama"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vEw-OQ-hR2" firstAttribute="leading" secondItem="wrT-lh-g6j" secondAttribute="leading" id="JMm-3T-t2B"/>
+                            <constraint firstItem="oUp-yI-pLy" firstAttribute="top" secondItem="vEw-OQ-hR2" secondAttribute="bottom" id="VBq-Li-vt7"/>
+                            <constraint firstItem="dsJ-VE-6fQ" firstAttribute="top" secondItem="oUp-yI-pLy" secondAttribute="bottom" id="Y4k-b6-tv6"/>
+                            <constraint firstItem="WWL-b6-Vvq" firstAttribute="top" secondItem="dsJ-VE-6fQ" secondAttribute="bottom" id="YrT-Jb-gJe"/>
+                            <constraint firstAttribute="trailing" secondItem="vEw-OQ-hR2" secondAttribute="trailing" id="iZ8-cs-IHT"/>
+                            <constraint firstAttribute="trailing" secondItem="dsJ-VE-6fQ" secondAttribute="trailing" id="kzk-4z-dmr"/>
+                            <constraint firstItem="oUp-yI-pLy" firstAttribute="leading" secondItem="wrT-lh-g6j" secondAttribute="leading" id="l1v-vL-kNH"/>
+                            <constraint firstItem="dsJ-VE-6fQ" firstAttribute="leading" secondItem="wrT-lh-g6j" secondAttribute="leading" id="oUc-pS-HbY"/>
+                            <constraint firstAttribute="trailing" secondItem="oUp-yI-pLy" secondAttribute="trailing" id="oZi-9E-W1U"/>
+                            <constraint firstItem="vEw-OQ-hR2" firstAttribute="top" secondItem="wrT-lh-g6j" secondAttribute="topMargin" id="orr-H1-sIy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hen-hN-2qM"/>
+                    <connections>
+                        <outlet property="mapView" destination="oUp-yI-pLy" id="HZ1-5h-epM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFn-gd-TV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

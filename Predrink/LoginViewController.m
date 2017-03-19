@@ -22,6 +22,8 @@
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.center = self.view.center;
     [self.view addSubview:loginButton];
+    
+    [self performSegueWithIdentifier:@"HomeSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

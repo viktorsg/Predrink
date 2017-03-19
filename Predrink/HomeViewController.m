@@ -12,7 +12,7 @@
 
 @interface HomeViewController ()
 
-@property (strong, nonatomic) GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 
 @end
 
@@ -22,14 +22,18 @@
     [super viewDidLoad];
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86 longitude:151.20 zoom:6];
-    
-    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    [self.mapView setCamera:camera];
     self.mapView.myLocationEnabled = YES;
-    self.view = self.mapView;
+    self.mapView.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    
 }
 
 /*
