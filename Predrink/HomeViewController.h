@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import <GoogleMaps/GoogleMaps.h>
+@class MapViewController;
 
-@interface HomeViewController : UIViewController<GMSMapViewDelegate>
+@interface HomeViewController : UIViewController
+
+@property (strong, nonatomic) MapViewController *mapViewController;
 
 @end
