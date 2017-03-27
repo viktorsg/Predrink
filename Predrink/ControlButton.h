@@ -10,4 +10,6 @@
 
 @interface ControlButton : UIButton
 
+@property (assign, nonatomic) BOOL isBig;
+
 @end

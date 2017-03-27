@@ -10,6 +10,10 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
+@class HomeViewController;
+
 @interface MapViewController : UIViewController<GMSMapViewDelegate>
+
+@property (strong, nonatomic) HomeViewController *homeViewController;
 
 @end

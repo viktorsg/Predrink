@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "HomeViewController.h"
 
 @interface MapViewController ()
 
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mapView.padding = UIEdgeInsetsMake(0.0, 0.0, 50.0, 0.0);
+    
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86 longitude:151.20 zoom:6];
     [self.mapView setCamera:camera];
     self.mapView.myLocationEnabled = YES;
@@ -29,8 +32,12 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
-    
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    [self.homeViewController hideBars];
+}
+
+- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
+    [self.homeViewController showBars];
 }
 
 /*

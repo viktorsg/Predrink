@@ -14,4 +14,7 @@
 
 @property (strong, nonatomic) MapViewController *mapViewController;
 
+- (void)hideBars;
+- (void)showBars;
+
 @end

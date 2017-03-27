@@ -18,12 +18,18 @@
 }
 */
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+-(void)layoutSubviews {
+    [super layoutSubviews];
     
-    self.imageEdgeInsets = UIEdgeInsetsMake(5.0f, self.frame.size.width / 2 - self.imageView.image.size.width , self.frame.size.height - self.imageView.image.size.height - 5.0f, self.frame.size.width / 2 - self.imageView.image.size.width);
-    
-    self.titleEdgeInsets = UIEdgeInsetsMake(self.imageView.frame.size.height + 5.0f, self.frame.size.width / 2 - self.titleLabel.frame.size.width, 5, self.frame.size.width / 2 - self.titleLabel.frame.size.width);
+    if(!self.isBig) {
+        self.imageView.frame = CGRectMake((self.frame.size.width - self.imageView.frame.size.width) / 2, 8, self.imageView.frame.size.width - 1, self.imageView.frame.size.height - 1);
+        self.titleLabel.frame = CGRectMake((self.frame.size.width - self.titleLabel.frame.size.width) / 2, self.imageView.frame.size.height + 5, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+        NSLog(@"not big");
+    } else {
+        self.imageView.frame = CGRectMake((self.frame.size.width - self.imageView.frame.size.width) / 2, 5, self.imageView.frame.size.width + 1, self.imageView.frame.size.height + 1);
+        self.titleLabel.frame = CGRectMake((self.frame.size.width - self.titleLabel.frame.size.width) / 2, self.imageView.frame.size.height + 5, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+        NSLog(@"big");
+    }
 }
 
 @end
