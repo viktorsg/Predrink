@@ -161,10 +161,10 @@
 		77F4FD111E87AC390037FDB6 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				77F5B0871E717DD500802904 /* Info.plist */,
-				77F5B0821E717DD500802904 /* Assets.xcassets */,
 				77F5B0791E717DD500802904 /* AppDelegate.h */,
 				77F5B07A1E717DD500802904 /* AppDelegate.m */,
+				77F5B0871E717DD500802904 /* Info.plist */,
+				77F5B0821E717DD500802904 /* Assets.xcassets */,
 			);
 			name = Application;
 			sourceTree = "<group>";

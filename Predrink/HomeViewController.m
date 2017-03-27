@@ -34,8 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.eventsButton.isBig = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +44,7 @@
     if(!self.areBarsHidden) {
         [self.view layoutIfNeeded];
         [UIView animateWithDuration:0.25 animations:^{
-            self.topBarViewTopConstraint.constant = -70;
+            self.topBarViewTopConstraint.constant = -50;
             self.bottomBarViewBottomConstraint.constant = -50;
             [self.view layoutIfNeeded];
         }];
@@ -110,12 +108,7 @@
     self.blursButton.alpha = 1.0f;
     self.eventsButton.alpha = 0.7f;
     self.profileButton.alpha = 0.7f;
-    
-    self.blursButton.isBig = YES;
-    self.eventsButton.isBig = NO;
-    self.profileButton.isBig = NO;
 }
-
 
 - (IBAction)onEventsPressed:(id)sender forEvent:(UIEvent *)event {
     [self rippleEffect:sender forEvent:event];
@@ -123,10 +116,6 @@
     self.blursButton.alpha = 0.7f;
     self.eventsButton.alpha = 1.0f;
     self.profileButton.alpha = 0.7f;
-    
-    self.blursButton.isBig = NO;
-    self.eventsButton.isBig = YES;
-    self.profileButton.isBig = NO;
 
 }
 
@@ -136,10 +125,6 @@
     self.blursButton.alpha = 0.7f;
     self.eventsButton.alpha = 0.7f;
     self.profileButton.alpha = 1.0f;
-    
-    self.blursButton.isBig = NO;
-    self.eventsButton.isBig = NO;
-    self.profileButton.isBig = YES;
 }
 
 

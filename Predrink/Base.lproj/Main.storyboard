@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +15,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RCG-ol-gYI" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mH9-e4-iwn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mH9-e4-iwn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -47,10 +46,10 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEw-OQ-hR2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="diX-2q-6nm">
-                                        <rect key="frame" x="67" y="20" width="240" height="50"/>
+                                        <rect key="frame" x="67" y="0.0" width="240" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="8vN-sd-PcJ"/>
                                             <constraint firstAttribute="height" constant="50" id="qXv-KR-YoE"/>
@@ -60,8 +59,15 @@
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="diX-2q-6nm" firstAttribute="centerX" secondItem="vEw-OQ-hR2" secondAttribute="centerX" id="7ce-5J-3Mt"/>
-                                    <constraint firstItem="diX-2q-6nm" firstAttribute="centerY" secondItem="vEw-OQ-hR2" secondAttribute="centerY" constant="10" id="Mpe-dq-OfP"/>
-                                    <constraint firstAttribute="height" constant="70" id="X0F-YO-DJ3"/>
+                                    <constraint firstItem="diX-2q-6nm" firstAttribute="centerY" secondItem="vEw-OQ-hR2" secondAttribute="centerY" id="Mpe-dq-OfP"/>
+                                    <constraint firstAttribute="height" constant="50" id="X0F-YO-DJ3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CZ-Hm-BmN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.82745098039215681" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="oRI-pZ-ebh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsJ-VE-6fQ">
@@ -78,6 +84,7 @@
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZdS-31-qPM" customClass="ControlButton">
                                         <rect key="frame" x="125" y="0.0" width="124" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Events" image="pin"/>
                                         <connections>
@@ -86,6 +93,7 @@
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yjf-oU-HUl" customClass="ControlButton">
                                         <rect key="frame" x="252" y="0.0" width="123" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Profile" image="profile"/>
                                         <connections>
@@ -113,14 +121,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vEw-OQ-hR2" firstAttribute="top" secondItem="6CZ-Hm-BmN" secondAttribute="bottom" id="3E9-Wx-hAu"/>
                             <constraint firstItem="jHd-GN-QKo" firstAttribute="leading" secondItem="wrT-lh-g6j" secondAttribute="leading" id="F4K-Ah-s3W"/>
                             <constraint firstItem="vEw-OQ-hR2" firstAttribute="leading" secondItem="wrT-lh-g6j" secondAttribute="leading" id="JMm-3T-t2B"/>
+                            <constraint firstAttribute="trailing" secondItem="6CZ-Hm-BmN" secondAttribute="trailing" id="Lx8-kN-szi"/>
+                            <constraint firstItem="6CZ-Hm-BmN" firstAttribute="top" secondItem="wrT-lh-g6j" secondAttribute="top" id="N13-BT-zmj"/>
                             <constraint firstItem="WWL-b6-Vvq" firstAttribute="top" secondItem="dsJ-VE-6fQ" secondAttribute="bottom" id="YrT-Jb-gJe"/>
+                            <constraint firstItem="6CZ-Hm-BmN" firstAttribute="leading" secondItem="wrT-lh-g6j" secondAttribute="leading" id="eGz-D1-DQe"/>
                             <constraint firstItem="jHd-GN-QKo" firstAttribute="top" secondItem="wrT-lh-g6j" secondAttribute="top" id="g6a-WU-ZbT"/>
                             <constraint firstAttribute="trailing" secondItem="vEw-OQ-hR2" secondAttribute="trailing" id="iZ8-cs-IHT"/>
                             <constraint firstAttribute="trailing" secondItem="dsJ-VE-6fQ" secondAttribute="trailing" id="kzk-4z-dmr"/>
                             <constraint firstItem="dsJ-VE-6fQ" firstAttribute="leading" secondItem="wrT-lh-g6j" secondAttribute="leading" id="oUc-pS-HbY"/>
-                            <constraint firstItem="vEw-OQ-hR2" firstAttribute="top" secondItem="wrT-lh-g6j" secondAttribute="topMargin" id="orr-H1-sIy"/>
                             <constraint firstAttribute="trailing" secondItem="jHd-GN-QKo" secondAttribute="trailing" id="uIn-iD-Q8I"/>
                             <constraint firstItem="WWL-b6-Vvq" firstAttribute="top" secondItem="jHd-GN-QKo" secondAttribute="bottom" id="v2c-5e-75T"/>
                         </constraints>
@@ -132,7 +143,7 @@
                         <outlet property="eventsButton" destination="ZdS-31-qPM" id="k6n-4q-3tB"/>
                         <outlet property="mapContainerView" destination="jHd-GN-QKo" id="B5a-kt-twM"/>
                         <outlet property="profileButton" destination="yjf-oU-HUl" id="bmV-Xm-2fl"/>
-                        <outlet property="topBarViewTopConstraint" destination="orr-H1-sIy" id="utO-G7-6Vt"/>
+                        <outlet property="topBarViewTopConstraint" destination="3E9-Wx-hAu" id="RI2-Ms-QNj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFn-gd-TV9" userLabel="First Responder" sceneMemberID="firstResponder"/>

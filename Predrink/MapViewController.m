@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 
+@property (assign, nonatomic) BOOL initialLaunch;
+
 @end
 
 @implementation MapViewController
@@ -22,6 +24,7 @@
     
     self.mapView.padding = UIEdgeInsetsMake(0.0, 0.0, 50.0, 0.0);
     
+    self.initialLaunch = YES;
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86 longitude:151.20 zoom:6];
     [self.mapView setCamera:camera];
     self.mapView.myLocationEnabled = YES;
@@ -33,11 +36,17 @@
 }
 
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
-    [self.homeViewController hideBars];
+    if(!self.initialLaunch) {
+        [self.homeViewController hideBars];
+    }
 }
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
-    [self.homeViewController showBars];
+    if(self.initialLaunch) {
+        self.initialLaunch = NO;
+    } else {
+        [self.homeViewController showBars];
+    }
 }
 
 /*

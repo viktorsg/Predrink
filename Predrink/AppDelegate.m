@@ -10,6 +10,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+@import Firebase;
 
 @interface AppDelegate ()
 
@@ -23,6 +24,8 @@
     [GMSServices provideAPIKey:@"AIzaSyDlihn4kwHaKPx9RD3oHa_2XhCc6N1uIvU"];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    //[FIRApp configure];
     
     return YES;
 }
