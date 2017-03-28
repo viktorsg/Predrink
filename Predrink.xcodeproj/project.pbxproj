@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		158A62AC32972031935D0FA2 /* Pods_Predrink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954904F984E7365E2F493812 /* Pods_Predrink.framework */; };
+		772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772FC2711E8AECC100A885B0 /* SplashViewController.m */; };
+		772FC2741E8AEDA800A885B0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772FC2731E8AEDA800A885B0 /* Bolts.framework */; };
 		77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77771BD61E72A91900A26AD9 /* LoginViewController.m */; };
 		779881E01E87EF6A0052D284 /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 779881DF1E87EF6A0052D284 /* ControlButton.m */; };
+		77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */; };
+		77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */; };
 		77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EAF3F91E72E28F00B796F9 /* HomeViewController.m */; };
-		77EAF4001E72EEA900B796F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FC1E72EEA900B796F9 /* Bolts.framework */; };
 		77EAF4011E72EEA900B796F9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FD1E72EEA900B796F9 /* FBSDKCoreKit.framework */; };
 		77EAF4021E72EEA900B796F9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FE1E72EEA900B796F9 /* FBSDKLoginKit.framework */; };
 		77EAF4031E72EEA900B796F9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FF1E72EEA900B796F9 /* FBSDKShareKit.framework */; };
 		77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F4FD0D1E87952C0037FDB6 /* Utils.m */; };
 		77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F4FD141E87E8610037FDB6 /* MapViewController.m */; };
+		77F5A1861E8AEAA5003D5221 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F5A1851E8AEAA5003D5221 /* SDWebImage.framework */; };
 		77F5B0781E717DD500802904 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B0771E717DD500802904 /* main.m */; };
 		77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B07A1E717DD500802904 /* AppDelegate.m */; };
 		77F5B0811E717DD500802904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B07F1E717DD500802904 /* Main.storyboard */; };
@@ -23,7 +28,6 @@
 		77F5B0861E717DD500802904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B0841E717DD500802904 /* LaunchScreen.storyboard */; };
 		77F5B0911E717DD500802904 /* PredrinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B0901E717DD500802904 /* PredrinkTests.m */; };
 		77F5B09C1E717DD500802904 /* PredrinkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B09B1E717DD500802904 /* PredrinkUITests.m */; };
-		B78623077A34A875811095B6 /* libPods-Predrink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B58DBA3E533C35C0B0AE73DC /* libPods-Predrink.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +49,17 @@
 
 /* Begin PBXFileReference section */
 		3E3442D93CD19F2E7A84EDC8 /* Pods-Predrink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predrink.release.xcconfig"; path = "Pods/Target Support Files/Pods-Predrink/Pods-Predrink.release.xcconfig"; sourceTree = "<group>"; };
+		772FC2701E8AECC100A885B0 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		772FC2711E8AECC100A885B0 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		772FC2731E8AEDA800A885B0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../Library/Developer/Xcode/DerivedData/Predrink-fhanhtdxwnqkqvcyhezmzfvvrgat/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
 		77771BD51E72A91900A26AD9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		77771BD61E72A91900A26AD9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		77867E891E8AE7B40048B7D1 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "../../Library/Developer/Xcode/DerivedData/Predrink-fhanhtdxwnqkqvcyhezmzfvvrgat/Build/Products/Debug-iphonesimulator/SDWebImage/libSDWebImage.a"; sourceTree = "<group>"; };
 		779881DE1E87EF6A0052D284 /* ControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlButton.h; sourceTree = "<group>"; };
 		779881DF1E87EF6A0052D284 /* ControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlButton.m; sourceTree = "<group>"; };
+		77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77EAF3F81E72E28F00B796F9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		77EAF3F91E72E28F00B796F9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77EAF3FC1E72EEA900B796F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -59,6 +70,7 @@
 		77F4FD0D1E87952C0037FDB6 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		77F4FD131E87E8610037FDB6 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		77F4FD141E87E8610037FDB6 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		77F5A1851E8AEAA5003D5221 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../Library/Developer/Xcode/DerivedData/Predrink-fhanhtdxwnqkqvcyhezmzfvvrgat/Build/Products/Debug-iphonesimulator/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		77F5B0731E717DD500802904 /* Predrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Predrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F5B0771E717DD500802904 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77F5B0791E717DD500802904 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,7 +86,7 @@
 		77F5B09B1E717DD500802904 /* PredrinkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PredrinkUITests.m; sourceTree = "<group>"; };
 		77F5B09D1E717DD500802904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88281A5A69D3671C0F26459E /* Pods-Predrink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predrink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Predrink/Pods-Predrink.debug.xcconfig"; sourceTree = "<group>"; };
-		B58DBA3E533C35C0B0AE73DC /* libPods-Predrink.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Predrink.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		954904F984E7365E2F493812 /* Pods_Predrink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Predrink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +94,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B78623077A34A875811095B6 /* libPods-Predrink.a in Frameworks */,
+				772FC2741E8AEDA800A885B0 /* Bolts.framework in Frameworks */,
+				77F5A1861E8AEAA5003D5221 /* SDWebImage.framework in Frameworks */,
 				77EAF4011E72EEA900B796F9 /* FBSDKCoreKit.framework in Frameworks */,
 				77EAF4031E72EEA900B796F9 /* FBSDKShareKit.framework in Frameworks */,
 				77EAF4021E72EEA900B796F9 /* FBSDKLoginKit.framework in Frameworks */,
-				77EAF4001E72EEA900B796F9 /* Bolts.framework in Frameworks */,
+				158A62AC32972031935D0FA2 /* Pods_Predrink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +158,10 @@
 				77EAF3F91E72E28F00B796F9 /* HomeViewController.m */,
 				77F4FD131E87E8610037FDB6 /* MapViewController.h */,
 				77F4FD141E87E8610037FDB6 /* MapViewController.m */,
+				77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */,
+				77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */,
+				772FC2701E8AECC100A885B0 /* SplashViewController.h */,
+				772FC2711E8AECC100A885B0 /* SplashViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -163,6 +180,7 @@
 			children = (
 				77F5B0791E717DD500802904 /* AppDelegate.h */,
 				77F5B07A1E717DD500802904 /* AppDelegate.m */,
+				77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */,
 				77F5B0871E717DD500802904 /* Info.plist */,
 				77F5B0821E717DD500802904 /* Assets.xcassets */,
 			);
@@ -243,7 +261,10 @@
 		D8DABCE78F3526C49483B1E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B58DBA3E533C35C0B0AE73DC /* libPods-Predrink.a */,
+				772FC2731E8AEDA800A885B0 /* Bolts.framework */,
+				77F5A1851E8AEAA5003D5221 /* SDWebImage.framework */,
+				77867E891E8AE7B40048B7D1 /* libSDWebImage.a */,
+				954904F984E7365E2F493812 /* Pods_Predrink.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -358,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F5B0861E717DD500802904 /* LaunchScreen.storyboard in Resources */,
+				77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */,
 				77F5B0831E717DD500802904 /* Assets.xcassets in Resources */,
 				77F5B0811E717DD500802904 /* Main.storyboard in Resources */,
 			);
@@ -422,7 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -435,7 +457,9 @@
 				77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */,
 				77F5B0781E717DD500802904 /* main.m in Sources */,
 				779881E01E87EF6A0052D284 /* ControlButton.m in Sources */,
+				77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */,
 				77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */,
+				772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */,
 				77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */,
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,
 				77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */,
@@ -593,8 +617,9 @@
 					"$(PROJECT_DIR)/Predrink",
 				);
 				INFOPLIST_FILE = Predrink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.Predrink;
+				PRODUCT_BUNDLE_IDENTIFIER = com.predrink.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -609,8 +634,9 @@
 					"$(PROJECT_DIR)/Predrink",
 				);
 				INFOPLIST_FILE = Predrink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = viktorgeorgiev.Predrink;
+				PRODUCT_BUNDLE_IDENTIFIER = com.predrink.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

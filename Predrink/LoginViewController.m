@@ -123,16 +123,26 @@
 
 - (IBAction)onFBLoginButtonPressed:(id)sender {
     if([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email"}]
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if(result != nil && error == nil) {
+                 [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile *profile, NSError *error) {
+                     if(error != nil) {
+                         
+                     }
+                 }];
                  [self performSegueWithIdentifier:@"HomeSegue" sender:self];
              }
          }];
     } else {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-        [login logInWithReadPermissions: @[@"email"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
             if(result != nil && error == nil) {
+                [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile *profile, NSError *error) {
+                    if(error != nil) {
+                        
+                    }
+                }];
                 [self performSegueWithIdentifier:@"HomeSegue" sender:self];
             }
         }];

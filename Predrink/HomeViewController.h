@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @class MapViewController;
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (strong, nonatomic) MapViewController *mapViewController;
 

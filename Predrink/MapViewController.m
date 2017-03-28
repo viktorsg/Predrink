@@ -22,17 +22,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.mapView.padding = UIEdgeInsetsMake(0.0, 0.0, 50.0, 0.0);
-    
     self.initialLaunch = YES;
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86 longitude:151.20 zoom:6];
-    [self.mapView setCamera:camera];
-    self.mapView.myLocationEnabled = YES;
+    
+    self.mapView.padding = UIEdgeInsetsMake(0.0, 0.0, 50.0, 0.0);
     self.mapView.delegate = self;
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.locationManager requestLocation];
+    } else {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if(status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.locationManager requestLocation];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *location = [locations lastObject];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:6];
+    [self.mapView animateToCameraPosition:camera];
+    self.mapView.myLocationEnabled = YES;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
 }
 
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {

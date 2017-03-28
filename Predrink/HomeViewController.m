@@ -24,6 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *myLocationButton;
 
 @property (weak, nonatomic) IBOutlet ControlButton *blursButton;
 @property (weak, nonatomic) IBOutlet ControlButton *eventsButton;
@@ -50,7 +51,7 @@
     if(!self.areBarsHidden) {
         [self.view layoutIfNeeded];
         [UIView animateWithDuration:0.25 animations:^{
-            self.topBarViewTopConstraint.constant = -45;
+            self.topBarViewTopConstraint.constant = -85;
             self.bottomBarViewBottomConstraint.constant = -100;
             [self.view layoutIfNeeded];
         }];
@@ -72,7 +73,7 @@
     }
 }
 
-- (void)rippleEffect:(id)sender forEvent:(UIEvent *)event {
+- (void)rippleEffect:(id)sender withColor:(UIColor *)color forEvent:(UIEvent *)event {
     UIButton *button = (UIButton *)sender;
     NSSet *touches = [event touchesForView:sender];
     UITouch *touch = [touches anyObject];
@@ -86,7 +87,7 @@
     shape.frame = button.bounds;
     UIBezierPath *fromPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - 0.1, point.y - 0.1, 0.2, 0.2)];
     UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - radius, point.y - radius, radius * 2, radius * 2)];
-    [shape setFillColor:[Utils colorFromHexString:@"#33FFFFFF"].CGColor];
+    [shape setFillColor:color.CGColor];
     [button.layer addSublayer:shape];
     
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -128,12 +129,15 @@
     if(index == 0) {
         self.addButton.hidden = YES;
         self.settingsButton.hidden = YES;
+        self.myLocationButton.hidden = YES;
     } else if(index == 1) {
         self.addButton.hidden = NO;
         self.settingsButton.hidden = YES;
+        self.myLocationButton.hidden = NO;
     } else {
         self.addButton.hidden = YES;
         self.settingsButton.hidden = NO;
+        self.myLocationButton.hidden = YES;
     }
 }
 
@@ -141,20 +145,28 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (IBAction)onMyLocationPressed:(id)sender {
+    [self.mapViewController.locationManager requestLocation];
+}
+
+- (IBAction)onAddPressed:(id)sender forEvent:(UIEvent *)event {
+    [self rippleEffect:sender withColor:[Utils colorFromHexString:@"33F44336"] forEvent:event];
+}
+
 - (IBAction)onBlursPressed:(id)sender forEvent:(UIEvent *)event {
-    [self rippleEffect:sender forEvent:event];
+    [self rippleEffect:sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     [self customizeButton:0];
 }
 
 - (IBAction)onEventsPressed:(id)sender forEvent:(UIEvent *)event {
-    [self rippleEffect:sender forEvent:event];
+    [self rippleEffect:sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     [self customizeButton:1];
 }
 
 - (IBAction)onProfilePressed:(id)sender forEvent:(UIEvent *)event {
-    [self rippleEffect:sender forEvent:event];
+    [self rippleEffect:sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     [self customizeButton:2];
 }
