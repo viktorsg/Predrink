@@ -21,8 +21,14 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    self.imageView.frame = CGRectMake((self.frame.size.width - self.imageView.frame.size.width) / 2, 5, self.imageView.frame.size.width, self.imageView.frame.size.height);
-    self.titleLabel.frame = CGRectMake((self.frame.size.width - self.titleLabel.frame.size.width) / 2, self.imageView.frame.size.height + 5, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+    CGRect frame = self.imageView.frame;
+    if(frame.size.width == 24) {
+        self.imageView.frame = CGRectMake((self.frame.size.width - self.imageView.frame.size.width) / 2, 5, self.imageView.frame.size.width, self.imageView.frame.size.height);
+        self.titleLabel.frame = CGRectMake((self.frame.size.width - self.titleLabel.frame.size.width) / 2, self.imageView.frame.size.height + 5, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+    } else {
+        self.imageView.frame = CGRectMake((self.frame.size.width - self.imageView.frame.size.width) / 2, 7, self.imageView.frame.size.width, self.imageView.frame.size.height);
+        self.titleLabel.frame = CGRectMake((self.frame.size.width - self.titleLabel.frame.size.width) / 2, self.imageView.frame.size.height + 9, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+    }
 }
 
 @end

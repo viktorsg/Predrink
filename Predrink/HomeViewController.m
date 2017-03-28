@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBarViewTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomBarViewBottomConstraint;
 
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+
 @property (weak, nonatomic) IBOutlet ControlButton *blursButton;
 @property (weak, nonatomic) IBOutlet ControlButton *eventsButton;
 @property (weak, nonatomic) IBOutlet ControlButton *profileButton;
@@ -34,6 +37,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.blursButton.titleLabel.textColor = [Utils colorFromHexString:@"#B3FFFFFF"];
+    self.profileButton.titleLabel.textColor = [Utils colorFromHexString:@"#B3FFFFFF"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,8 +50,8 @@
     if(!self.areBarsHidden) {
         [self.view layoutIfNeeded];
         [UIView animateWithDuration:0.25 animations:^{
-            self.topBarViewTopConstraint.constant = -50;
-            self.bottomBarViewBottomConstraint.constant = -50;
+            self.topBarViewTopConstraint.constant = -45;
+            self.bottomBarViewBottomConstraint.constant = -100;
             [self.view layoutIfNeeded];
         }];
         
@@ -98,6 +104,39 @@
     [shape addAnimation:fade forKey:@"fade"];
 }
 
+- (void)customizeButton:(long)index {
+    NSArray<UIButton *> *buttonsArray = @[self.blursButton, self.eventsButton, self.profileButton];
+    NSArray<NSString *> *icons = @[@"blur", @"pin", @"profile"];
+    NSArray<NSString *> *greyIcons = @[@"blur_grey", @"pin_grey", @"profile_grey"];
+    for(int i = 0; i < buttonsArray.count; i++) {
+        UIButton *button = [buttonsArray objectAtIndex:i];
+        if(i == index) {
+            button.titleLabel.font = [UIFont fontWithName:self.blursButton.titleLabel.font.fontName size:14.0f];
+            button.titleLabel.textColor = [UIColor whiteColor];
+            [button setImage:[UIImage imageNamed:[icons objectAtIndex:i]] forState:UIControlStateNormal];
+        } else {
+            button.titleLabel.font = [UIFont fontWithName:self.blursButton.titleLabel.font.fontName size:12.0f];
+            button.titleLabel.textColor = [Utils colorFromHexString:@"#B3FFFFFF"];
+            [button setImage:[UIImage imageNamed:[greyIcons objectAtIndex:i]] forState:UIControlStateNormal];
+        }
+    }
+    
+    [self buttonsControll:index];
+}
+
+- (void)buttonsControll:(long)index {
+    if(index == 0) {
+        self.addButton.hidden = YES;
+        self.settingsButton.hidden = YES;
+    } else if(index == 1) {
+        self.addButton.hidden = NO;
+        self.settingsButton.hidden = YES;
+    } else {
+        self.addButton.hidden = YES;
+        self.settingsButton.hidden = NO;
+    }
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
@@ -105,26 +144,19 @@
 - (IBAction)onBlursPressed:(id)sender forEvent:(UIEvent *)event {
     [self rippleEffect:sender forEvent:event];
     
-    self.blursButton.alpha = 1.0f;
-    self.eventsButton.alpha = 0.7f;
-    self.profileButton.alpha = 0.7f;
+    [self customizeButton:0];
 }
 
 - (IBAction)onEventsPressed:(id)sender forEvent:(UIEvent *)event {
     [self rippleEffect:sender forEvent:event];
     
-    self.blursButton.alpha = 0.7f;
-    self.eventsButton.alpha = 1.0f;
-    self.profileButton.alpha = 0.7f;
-
+    [self customizeButton:1];
 }
 
 - (IBAction)onProfilePressed:(id)sender forEvent:(UIEvent *)event {
     [self rippleEffect:sender forEvent:event];
     
-    self.blursButton.alpha = 0.7f;
-    self.eventsButton.alpha = 0.7f;
-    self.profileButton.alpha = 1.0f;
+    [self customizeButton:2];
 }
 
 
