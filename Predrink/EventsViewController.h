@@ -17,4 +17,6 @@
 
 @property (strong, nonatomic) MapViewController *mapViewController;
 
+- (void)switchViews;
+
 @end

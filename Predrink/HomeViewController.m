@@ -23,9 +23,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBarViewTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomBarViewBottomConstraint;
 
-@property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *listButton;
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
 @property (weak, nonatomic) IBOutlet UIButton *myLocationButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (weak, nonatomic) IBOutlet ControlButton *blursButton;
 @property (weak, nonatomic) IBOutlet ControlButton *eventsButton;
@@ -52,7 +54,7 @@
     if(!self.areBarsHidden) {
         [self.view layoutIfNeeded];
         [UIView animateWithDuration:0.25 animations:^{
-            self.topBarViewTopConstraint.constant = -85;
+            self.topBarViewTopConstraint.constant = -125;
             self.bottomBarViewBottomConstraint.constant = -100;
             [self.view layoutIfNeeded];
         }];
@@ -144,6 +146,36 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (IBAction)onListPressed:(id)sender {
+    self.myLocationButton.hidden = YES;
+    
+    self.listButton.userInteractionEnabled = NO;
+    self.mapButton.userInteractionEnabled = YES;
+    
+    self.listButton.backgroundColor = [Utils colorFromHexString:@"CCF44336"];
+    self.mapButton.backgroundColor = [UIColor whiteColor];
+    
+    [self.listButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.mapButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [self.eventsViewController switchViews];
+}
+
+- (IBAction)onMapPressed:(id)sender {
+    self.myLocationButton.hidden = NO;
+    
+    self.listButton.userInteractionEnabled = YES;
+    self.mapButton.userInteractionEnabled = NO;
+    
+    self.listButton.backgroundColor = [UIColor whiteColor];
+    self.mapButton.backgroundColor = [Utils colorFromHexString:@"CCF44336"];
+    
+    [self.listButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.mapButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self.eventsViewController switchViews];
 }
 
 - (IBAction)onMyLocationPressed:(id)sender {

@@ -12,6 +12,7 @@
 		772FC2741E8AEDA800A885B0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772FC2731E8AEDA800A885B0 /* Bolts.framework */; };
 		77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77771BD61E72A91900A26AD9 /* LoginViewController.m */; };
 		7786AFAF1E8B833500FBDFD0 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFAE1E8B833500FBDFD0 /* EventsViewController.m */; };
+		7786AFB21E8B8C5D00FBDFD0 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */; };
 		779881E01E87EF6A0052D284 /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 779881DF1E87EF6A0052D284 /* ControlButton.m */; };
 		77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */; };
 		77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */; };
@@ -58,6 +59,8 @@
 		77867E891E8AE7B40048B7D1 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "../../Library/Developer/Xcode/DerivedData/Predrink-fhanhtdxwnqkqvcyhezmzfvvrgat/Build/Products/Debug-iphonesimulator/SDWebImage/libSDWebImage.a"; sourceTree = "<group>"; };
 		7786AFAD1E8B833500FBDFD0 /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
 		7786AFAE1E8B833500FBDFD0 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		7786AFB01E8B8C5D00FBDFD0 /* EventsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsListViewController.h; sourceTree = "<group>"; };
+		7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsListViewController.m; sourceTree = "<group>"; };
 		779881DE1E87EF6A0052D284 /* ControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlButton.h; sourceTree = "<group>"; };
 		779881DF1E87EF6A0052D284 /* ControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlButton.m; sourceTree = "<group>"; };
 		77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				77EAF3F91E72E28F00B796F9 /* HomeViewController.m */,
 				7786AFAD1E8B833500FBDFD0 /* EventsViewController.h */,
 				7786AFAE1E8B833500FBDFD0 /* EventsViewController.m */,
+				7786AFB01E8B8C5D00FBDFD0 /* EventsListViewController.h */,
+				7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */,
 				77F4FD131E87E8610037FDB6 /* MapViewController.h */,
 				77F4FD141E87E8610037FDB6 /* MapViewController.m */,
 				77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */,
@@ -460,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */,
+				7786AFB21E8B8C5D00FBDFD0 /* EventsListViewController.m in Sources */,
 				7786AFAF1E8B833500FBDFD0 /* EventsViewController.m in Sources */,
 				77F5B0781E717DD500802904 /* main.m in Sources */,
 				779881E01E87EF6A0052D284 /* ControlButton.m in Sources */,
