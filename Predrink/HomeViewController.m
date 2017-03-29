@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "EventsViewController.h"
 #import "MapViewController.h"
 
 #import "ControlButton.h"
@@ -17,7 +18,7 @@
 
 @interface HomeViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *mapContainerView;
+@property (weak, nonatomic) IBOutlet UIView *eventsContainerView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBarViewTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomBarViewBottomConstraint;
@@ -146,7 +147,7 @@
 }
 
 - (IBAction)onMyLocationPressed:(id)sender {
-    [self.mapViewController.locationManager requestLocation];
+    [self.eventsViewController.mapViewController.locationManager requestLocation];
 }
 
 - (IBAction)onAddPressed:(id)sender forEvent:(UIEvent *)event {
@@ -175,10 +176,10 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.destinationViewController isKindOfClass:[MapViewController class]]) {
-        MapViewController *mapViewController = (MapViewController *)segue.destinationViewController;
-        self.mapViewController = mapViewController;
-        mapViewController.homeViewController = self;
+    if([segue.destinationViewController isKindOfClass:[EventsViewController class]]) {
+        EventsViewController *eventsViewController = (EventsViewController *)segue.destinationViewController;
+        self.eventsViewController = eventsViewController;
+        eventsViewController.homeViewController = self;
     }
 }
 

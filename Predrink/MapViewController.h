@@ -11,11 +11,11 @@
 #import <MapKit/MapKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-@class HomeViewController;
+@class EventsViewController;
 
 @interface MapViewController : UIViewController<GMSMapViewDelegate, CLLocationManagerDelegate>
 
-@property (strong, nonatomic) HomeViewController *homeViewController;
+@property (strong, nonatomic) EventsViewController *eventsViewController;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 

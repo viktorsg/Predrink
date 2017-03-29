@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *fbLoginButton;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loginIndicator;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *emojiLogoHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *emojiLogoWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *emojiLogoHorizontalConstraint;
@@ -122,15 +124,16 @@
 }
 
 - (IBAction)onFBLoginButtonPressed:(id)sender {
+    self.fbLoginButton.hidden = YES;
+    [self.loginIndicator startAnimating];
+    
     if([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             [self.loginIndicator stopAnimating];
+             self.fbLoginButton.hidden = NO;
+             
              if(result != nil && error == nil) {
-                 [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile *profile, NSError *error) {
-                     if(error != nil) {
-                         
-                     }
-                 }];
                  [self performSegueWithIdentifier:@"HomeSegue" sender:self];
              }
          }];
@@ -139,6 +142,9 @@
         [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
             if(result != nil && error == nil) {
                 [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile *profile, NSError *error) {
+                    [self.loginIndicator stopAnimating];
+                    self.fbLoginButton.hidden = NO;
+                    
                     if(error != nil) {
                         
                     }

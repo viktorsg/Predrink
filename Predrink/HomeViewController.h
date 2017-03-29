@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@class MapViewController;
+@class EventsViewController;
 
 @interface HomeViewController : UIViewController<CLLocationManagerDelegate>
 
-@property (strong, nonatomic) MapViewController *mapViewController;
+@property (strong, nonatomic) EventsViewController *eventsViewController;
 
 - (void)hideBars;
 - (void)showBars;

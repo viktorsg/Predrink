@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "HomeViewController.h"
+#import "EventsViewController.h"
 
 @interface MapViewController ()
 
@@ -25,6 +26,7 @@
     self.initialLaunch = YES;
     
     self.mapView.padding = UIEdgeInsetsMake(0.0, 0.0, 50.0, 0.0);
+    self.mapView.settings.rotateGestures = NO;
     self.mapView.delegate = self;
     
     self.locationManager = [[CLLocationManager alloc] init];
@@ -49,9 +51,13 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation *location = [locations lastObject];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:6];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:15];
     [self.mapView animateToCameraPosition:camera];
-    self.mapView.myLocationEnabled = YES;
+    
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.icon = [UIImage imageNamed:@"my_location"];
+    marker.map = self.mapView;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
@@ -60,7 +66,7 @@
 
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
     if(!self.initialLaunch) {
-        [self.homeViewController hideBars];
+        [self.eventsViewController.homeViewController hideBars];
     }
 }
 
@@ -68,7 +74,7 @@
     if(self.initialLaunch) {
         self.initialLaunch = NO;
     } else {
-        [self.homeViewController showBars];
+        [self.eventsViewController.homeViewController showBars];
     }
 }
 
