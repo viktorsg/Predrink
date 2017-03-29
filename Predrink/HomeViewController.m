@@ -19,6 +19,8 @@
 @interface HomeViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *eventsContainerView;
+@property (weak, nonatomic) IBOutlet UIView *profileContainerView;
+@property (weak, nonatomic) IBOutlet UIView *eventsButtonsView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBarViewTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomBarViewBottomConstraint;
@@ -133,14 +135,23 @@
         self.addButton.hidden = YES;
         self.settingsButton.hidden = YES;
         self.myLocationButton.hidden = YES;
+        self.eventsButtonsView.hidden = YES;
     } else if(index == 1) {
+        self.eventsContainerView.hidden = NO;
+        self.profileContainerView.hidden = YES;
+        
         self.addButton.hidden = NO;
         self.settingsButton.hidden = YES;
         self.myLocationButton.hidden = NO;
+        self.eventsButtonsView.hidden = NO;
     } else {
+        self.eventsContainerView.hidden = YES;
+        self.profileContainerView.hidden = NO;
+        
         self.addButton.hidden = YES;
         self.settingsButton.hidden = NO;
         self.myLocationButton.hidden = YES;
+        self.eventsButtonsView.hidden = YES;
     }
 }
 

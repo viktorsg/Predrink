@@ -13,6 +13,7 @@
 		77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77771BD61E72A91900A26AD9 /* LoginViewController.m */; };
 		7786AFAF1E8B833500FBDFD0 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFAE1E8B833500FBDFD0 /* EventsViewController.m */; };
 		7786AFB21E8B8C5D00FBDFD0 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */; };
+		7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFB41E8BE60300FBDFD0 /* ProfileViewController.m */; };
 		779881E01E87EF6A0052D284 /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 779881DF1E87EF6A0052D284 /* ControlButton.m */; };
 		77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */; };
 		77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */; };
@@ -61,6 +62,8 @@
 		7786AFAE1E8B833500FBDFD0 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
 		7786AFB01E8B8C5D00FBDFD0 /* EventsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsListViewController.h; sourceTree = "<group>"; };
 		7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsListViewController.m; sourceTree = "<group>"; };
+		7786AFB31E8BE60300FBDFD0 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		7786AFB41E8BE60300FBDFD0 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		779881DE1E87EF6A0052D284 /* ControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlButton.h; sourceTree = "<group>"; };
 		779881DF1E87EF6A0052D284 /* ControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlButton.m; sourceTree = "<group>"; };
 		77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */,
 				77F4FD131E87E8610037FDB6 /* MapViewController.h */,
 				77F4FD141E87E8610037FDB6 /* MapViewController.m */,
+				7786AFB31E8BE60300FBDFD0 /* ProfileViewController.h */,
+				7786AFB41E8BE60300FBDFD0 /* ProfileViewController.m */,
 				77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */,
 				77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */,
 			);
@@ -474,6 +479,7 @@
 				772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */,
 				77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */,
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,
+				7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */,
 				77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
