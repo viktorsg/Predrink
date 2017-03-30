@@ -10,10 +10,13 @@
 #import <MapKit/MapKit.h>
 
 @class EventsViewController;
+@class ProfileViewController;
 
 @interface HomeViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (strong, nonatomic) EventsViewController *eventsViewController;
+
+@property (strong, nonatomic) ProfileViewController *profileViewController;
 
 - (void)hideBars;
 - (void)showBars;

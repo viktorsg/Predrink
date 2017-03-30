@@ -14,12 +14,20 @@
 
 @property (weak, nonatomic) IBOutlet UIView *myEventsControlView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *arrowUpTopConstraint;
+
+@property (strong, nonatomic) NSTimer *animationTimer;
+
+@property (assign, nonatomic) long animationCount;
+
 @end
 
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -38,6 +46,71 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+- (void)onPageChanged:(int)page {
+    switch (page) {
+        case 0: {
+            break;
+        }
+            
+        case 1: {
+            break;
+        }
+    }
+}
+
+- (void)animateMyEventsView {
+    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:1.25 target:self selector:@selector(animation) userInfo:nil repeats:YES];
+    [self.animationTimer fire];
+}
+
+- (void)animation {
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.20 delay:0.25 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.arrowUpTopConstraint.constant = 1;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        if(finished) {
+            [self.view layoutIfNeeded];
+            [UIView animateWithDuration:0.10 animations:^{
+                self.arrowUpTopConstraint.constant = 5;
+                [self.view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                if(finished) {
+                    [self.view layoutIfNeeded];
+                    [UIView animateWithDuration:0.10 animations:^{
+                        self.arrowUpTopConstraint.constant = 3;
+                        [self.view layoutIfNeeded];
+                    } completion:^(BOOL finished) {
+                        if(finished) {
+                            [self.view layoutIfNeeded];
+                            [UIView animateWithDuration:0.20 animations:^{
+                                self.arrowUpTopConstraint.constant = 7;
+                                [self.view layoutIfNeeded];
+                            } completion:^(BOOL finished) {
+                                if(finished) {
+                                    if(self.animationCount == 0) {
+                                        self.animationCount++;
+                                    } else {
+                                        self.animationCount = 0;
+                                        
+                                        [self.animationTimer invalidate];
+                                    }
+                                }
+                            }];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    int page = (scrollView.contentOffset.y + scrollView.frame.size.height / 2) / scrollView.frame.size.height;
+    [self onPageChanged:page];
+}
+
 
 /*
 #pragma mark - Navigation

@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "EventsViewController.h"
 #import "MapViewController.h"
+#import "ProfileViewController.h"
 
 #import "ControlButton.h"
 
@@ -126,8 +127,6 @@
             [button setImage:[UIImage imageNamed:[greyIcons objectAtIndex:i]] forState:UIControlStateNormal];
         }
     }
-    
-    [self buttonsControll:index];
 }
 
 - (void)buttonsControll:(long)index {
@@ -201,18 +200,25 @@
     [self rippleEffect:sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     [self customizeButton:0];
+    [self buttonsControll:0];
 }
 
 - (IBAction)onEventsPressed:(id)sender forEvent:(UIEvent *)event {
     [self rippleEffect:sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     [self customizeButton:1];
+    [self buttonsControll:1];
 }
 
 - (IBAction)onProfilePressed:(id)sender forEvent:(UIEvent *)event {
     [self rippleEffect:sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
+    if(self.profileContainerView.hidden == YES) {
+        [self.profileViewController animateMyEventsView];
+    }
+    
     [self customizeButton:2];
+    [self buttonsControll:2];
 }
 
 
@@ -223,6 +229,9 @@
         EventsViewController *eventsViewController = (EventsViewController *)segue.destinationViewController;
         self.eventsViewController = eventsViewController;
         eventsViewController.homeViewController = self;
+    } else if([segue.destinationViewController isKindOfClass:[ProfileViewController class]]) {
+        ProfileViewController *profileViewController = (ProfileViewController *)segue.destinationViewController;
+        self.profileViewController = profileViewController;
     }
 }
 

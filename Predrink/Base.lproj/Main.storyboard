@@ -48,7 +48,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RCG-ol-gYI" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mH9-e4-iwn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mH9-e4-iwn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -557,20 +557,36 @@
                                                                     <constraint firstAttribute="width" constant="15" id="tIl-hm-phZ"/>
                                                                 </constraints>
                                                             </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="my events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbI-JO-Z3U">
+                                                                <rect key="frame" x="156.5" y="22" width="62" height="16"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="SbI-JO-Z3U" firstAttribute="top" secondItem="RLB-Jy-vh9" secondAttribute="bottom" id="Ja0-Df-Fwa"/>
+                                                            <constraint firstItem="SbI-JO-Z3U" firstAttribute="centerX" secondItem="rIi-KN-UP1" secondAttribute="centerX" id="Okv-3F-g4B"/>
                                                             <constraint firstItem="RLB-Jy-vh9" firstAttribute="top" secondItem="rIi-KN-UP1" secondAttribute="top" constant="7" id="hZy-mB-t8v"/>
                                                             <constraint firstAttribute="height" constant="40" id="itT-My-HLO"/>
                                                             <constraint firstItem="RLB-Jy-vh9" firstAttribute="centerX" secondItem="rIi-KN-UP1" secondAttribute="centerX" id="yTS-4k-yyx"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHE-0z-jqN">
+                                                        <rect key="frame" x="0.0" y="40" width="375" height="512"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="rIi-KN-UP1" secondAttribute="trailing" id="6Iz-Gw-Xem"/>
+                                                    <constraint firstItem="dHE-0z-jqN" firstAttribute="leading" secondItem="HRr-0c-w70" secondAttribute="leading" id="Q5h-ht-BZg"/>
+                                                    <constraint firstItem="dHE-0z-jqN" firstAttribute="top" secondItem="rIi-KN-UP1" secondAttribute="bottom" id="WGf-HI-L7F"/>
                                                     <constraint firstItem="rIi-KN-UP1" firstAttribute="leading" secondItem="HRr-0c-w70" secondAttribute="leading" id="fpj-3E-dMf"/>
                                                     <constraint firstItem="rIi-KN-UP1" firstAttribute="top" secondItem="HRr-0c-w70" secondAttribute="top" id="lzg-ge-9Ol"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dHE-0z-jqN" secondAttribute="trailing" id="qbj-iS-YCQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dHE-0z-jqN" secondAttribute="bottom" id="saw-h7-bQx"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -595,6 +611,9 @@
                                     <constraint firstAttribute="bottom" secondItem="Y1p-Vh-dNl" secondAttribute="bottom" id="eEr-Zv-qdS"/>
                                     <constraint firstAttribute="trailing" secondItem="Y1p-Vh-dNl" secondAttribute="trailing" id="xxS-BJ-hTC"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="GrJ-c1-90W" id="IGv-B1-e4g"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -606,6 +625,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="arrowUpTopConstraint" destination="hZy-mB-t8v" id="vI4-GE-Wd9"/>
                         <outlet property="myEventsControlView" destination="rIi-KN-UP1" id="XFw-Ku-GCe"/>
                         <outlet property="profileScrollView" destination="71Y-1z-jTj" id="vf4-2x-WQN"/>
                     </connections>
