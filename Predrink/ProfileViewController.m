@@ -79,7 +79,7 @@
                 if(finished) {
                     [self.view layoutIfNeeded];
                     [UIView animateWithDuration:0.10 animations:^{
-                        self.arrowUpTopConstraint.constant = 3;
+                        self.arrowUpTopConstraint.constant = 4;
                         [self.view layoutIfNeeded];
                     } completion:^(BOOL finished) {
                         if(finished) {
