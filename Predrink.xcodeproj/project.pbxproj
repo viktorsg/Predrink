@@ -18,6 +18,7 @@
 		779881E01E87EF6A0052D284 /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 779881DF1E87EF6A0052D284 /* ControlButton.m */; };
 		77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */; };
 		77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */; };
+		77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */; };
 		77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EAF3F91E72E28F00B796F9 /* HomeViewController.m */; };
 		77EAF4011E72EEA900B796F9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FD1E72EEA900B796F9 /* FBSDKCoreKit.framework */; };
 		77EAF4021E72EEA900B796F9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FE1E72EEA900B796F9 /* FBSDKLoginKit.framework */; };
@@ -72,6 +73,8 @@
 		77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		77A9A87C1E8E32BC000DA064 /* AnimationTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTransitioning.h; sourceTree = "<group>"; };
+		77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTransitioning.m; sourceTree = "<group>"; };
 		77EAF3F81E72E28F00B796F9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		77EAF3F91E72E28F00B796F9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77EAF3FC1E72EEA900B796F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -148,6 +151,15 @@
 				779881DF1E87EF6A0052D284 /* ControlButton.m */,
 			);
 			name = UIClasses;
+			sourceTree = "<group>";
+		};
+		77A9A87B1E8E3276000DA064 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				77A9A87C1E8E32BC000DA064 /* AnimationTransitioning.h */,
+				77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		77EAF3FB1E72EE8700B796F9 /* Frameworks */ = {
@@ -241,12 +253,13 @@
 		77F5B0751E717DD500802904 /* Predrink */ = {
 			isa = PBXGroup;
 			children = (
-				779881DD1E87EF570052D284 /* UIClasses */,
-				77F4FD111E87AC390037FDB6 /* Application */,
 				77EAF3FB1E72EE8700B796F9 /* Frameworks */,
+				779881DD1E87EF570052D284 /* UIClasses */,
+				77A9A87B1E8E3276000DA064 /* Classes */,
+				77F4FD121E87AC460037FDB6 /* Utils */,
 				77F4FD0F1E87ABE50037FDB6 /* ViewControllers */,
 				77F4FD101E87AC060037FDB6 /* Storyboards */,
-				77F4FD121E87AC460037FDB6 /* Utils */,
+				77F4FD111E87AC390037FDB6 /* Application */,
 				77F5B0761E717DD500802904 /* Supporting Files */,
 			);
 			path = Predrink;
@@ -478,6 +491,7 @@
 				7786AFB21E8B8C5D00FBDFD0 /* EventsListViewController.m in Sources */,
 				7786AFAF1E8B833500FBDFD0 /* EventsViewController.m in Sources */,
 				77F5B0781E717DD500802904 /* main.m in Sources */,
+				77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */,
 				779881E01E87EF6A0052D284 /* ControlButton.m in Sources */,
 				77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */,
 				77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */,

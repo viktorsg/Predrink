@@ -12,12 +12,16 @@
 
 @interface AddEventViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *eventScrollView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *leftCircleImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *centerCircleImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *rightCircleImageView;
 
 @property (weak, nonatomic) IBOutlet UIProgressView *topLeftProgressView;
 @property (weak, nonatomic) IBOutlet UIProgressView *topRightProgressView;
+
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 
@@ -62,6 +66,11 @@
     progressView.progressTintColor = [Utils colorFromHexString:@"#F44336"];
 }
 
+- (void)changePage {
+    self.page++;
+    self.eventScrollView.contentOffset = CGPointMake(self.page * self.eventScrollView.frame.size.width, 0);
+}
+
 - (void)animateProgressView {
     [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.25 animations:^{
@@ -77,11 +86,11 @@
 - (IBAction)onForwardPressed:(id)sender {
     if(self.page == 0) {
         [self animateProgressView];
-        self.page++;
+        [self changePage];
         [self customizeImageView:self.leftCircleImageView should:NO];
     } else if(self.page == 1) {
         [self animateProgressView];
-        self.page++;
+        [self changePage];
         [self customizeImageView:self.centerCircleImageView should:NO];
         
         [self.forwardButton setImage:[UIImage imageNamed:@"done_white"] forState:UIControlStateNormal];

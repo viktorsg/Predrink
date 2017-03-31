@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+#import "AddEventViewController.h"
+
+#import "AnimationTransitioning.h"
+
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 
@@ -21,6 +25,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    ((UINavigationController *)self.window.rootViewController).delegate = self;
     
     [GMSServices provideAPIKey:@"AIzaSyDlihn4kwHaKPx9RD3oHa_2XhCc6N1uIvU"];
     
@@ -59,6 +65,21 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+-(id<UIViewControllerAnimatedTransitioning>) navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    AnimationTransitioning *animationTransitioning = [[AnimationTransitioning alloc] init];
+    if(operation == UINavigationControllerOperationPush) {
+        if([toVC isKindOfClass:[AddEventViewController class]]) {
+            animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
+        }
+    } else if(operation == UINavigationControllerOperationPop) {
+        if([fromVC isKindOfClass:[AddEventViewController class]]) {
+            animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
+        }
+    }
+    return animationTransitioning;
+    
 }
 
 
