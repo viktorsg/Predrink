@@ -60,6 +60,55 @@
             </objects>
             <point key="canvasLocation" x="-1998" y="89"/>
         </scene>
+        <!--Dialog Add Event View Controller-->
+        <scene sceneID="kL0-ll-8oa">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3Vy-kT-6s2" customClass="DialogAddEventViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rdv-IZ-ndJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="cck-Ie-LkV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d3p-Vq-tKx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rro-Mg-GEe">
+                                <rect key="frame" x="67" y="258" width="240" height="150"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watercolor_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nL7-gc-c7z">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="nY0-OS-9fd"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nL7-gc-c7z" firstAttribute="top" secondItem="rro-Mg-GEe" secondAttribute="top" id="JB1-ou-8IS"/>
+                                    <constraint firstAttribute="width" constant="240" id="UH1-PA-LjQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="nL7-gc-c7z" secondAttribute="trailing" id="cDI-z1-gml"/>
+                                    <constraint firstAttribute="height" constant="150" id="if7-WW-SSW"/>
+                                    <constraint firstItem="nL7-gc-c7z" firstAttribute="leading" secondItem="rro-Mg-GEe" secondAttribute="leading" id="se0-y5-PCS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rro-Mg-GEe" firstAttribute="centerX" secondItem="d3p-Vq-tKx" secondAttribute="centerX" id="COl-bc-EYY"/>
+                            <constraint firstItem="rro-Mg-GEe" firstAttribute="centerY" secondItem="d3p-Vq-tKx" secondAttribute="centerY" id="Jvo-JO-3Gf"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7M-ki-W4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="686" y="-1266"/>
+        </scene>
         <!--Add Event View Controller-->
         <scene sceneID="WoG-AR-Tiv">
             <objects>
@@ -99,7 +148,7 @@
                                                             <constraint firstAttribute="height" constant="2" id="VXJ-Md-Jeo"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwE-RL-BUi">
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwE-RL-BUi">
                                                         <rect key="frame" x="62" y="285" width="125" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="SJF-kN-m4L"/>
@@ -108,8 +157,11 @@
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                                         <state key="normal" title="SAVE"/>
+                                                        <connections>
+                                                            <action selector="onSavePressed:forEvent:" destination="ACd-o1-gei" eventType="touchUpInside" id="UhW-9d-MkI"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1N-xm-Sgg">
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1N-xm-Sgg">
                                                         <rect key="frame" x="188" y="285" width="125" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="OMC-QA-9RF"/>
@@ -118,6 +170,9 @@
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="EDIT"/>
+                                                        <connections>
+                                                            <action selector="onEditPressed:forEvent:" destination="ACd-o1-gei" eventType="touchUpInside" id="mrf-EG-f25"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S95-It-c5K">
                                                         <rect key="frame" x="174" y="347" width="28" height="24"/>
@@ -131,7 +186,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TPl-F4-TyC">
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TPl-F4-TyC">
                                                         <rect key="frame" x="85" y="421" width="205" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="205" id="o7F-dj-V87"/>
@@ -140,9 +195,13 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Pick from My Places" image="star"/>
+                                                        <connections>
+                                                            <action selector="onPickFromMyPlacesPressed:forEvent:" destination="ACd-o1-gei" eventType="touchUpInside" id="68C-Sl-c6d"/>
+                                                            <segue destination="3Vy-kT-6s2" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="STz-1X-jbS"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RVq-p3-5Ia">
-                                                        <rect key="frame" x="95.5" y="461" width="185" height="35"/>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RVq-p3-5Ia">
+                                                        <rect key="frame" x="95" y="461" width="185" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="OqH-59-iH1"/>
                                                             <constraint firstAttribute="width" constant="185" id="hxT-Wh-oMl"/>
@@ -150,6 +209,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Pick a new location" image="pin_small"/>
+                                                        <connections>
+                                                            <action selector="onPickNewLocationPressed:forEvent:" destination="ACd-o1-gei" eventType="touchUpInside" id="BvD-zR-kSs"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -237,7 +299,7 @@
                                     <outlet property="delegate" destination="ACd-o1-gei" id="v57-Oz-haN"/>
                                 </connections>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ym-x9-QCv">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_dot" translatesAutoresizingMaskIntoConstraints="NO" id="5Ym-x9-QCv">
                                 <rect key="frame" x="15" y="10" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Yon-M2-WFO"/>
@@ -965,8 +1027,10 @@
         <image name="pin" width="24" height="24"/>
         <image name="pin_small" width="20" height="20"/>
         <image name="profile_grey" width="20" height="20"/>
+        <image name="red_dot" width="10" height="10"/>
         <image name="settings" width="20" height="20"/>
         <image name="splash_logo" width="90" height="90"/>
         <image name="star" width="20" height="20"/>
+        <image name="watercolor_bg" width="150" height="150"/>
     </resources>
 </document>

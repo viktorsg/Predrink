@@ -80,7 +80,30 @@
             self.topRightProgressView.progress = 1.0f;
         }
         [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        if(finished) {
+            if(self.page == 1)  {
+                self.centerCircleImageView.image = [UIImage imageNamed:@"red_dot"];
+            } else {
+                self.rightCircleImageView.image = [UIImage imageNamed:@"red_dot"];
+            }
+        }
     }];
+}
+- (IBAction)onSavePressed:(id)sender forEvent:(UIEvent *)event {
+    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
+}
+
+- (IBAction)onEditPressed:(id)sender forEvent:(UIEvent *)event {
+    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
+}
+
+- (IBAction)onPickFromMyPlacesPressed:(id)sender forEvent:(UIEvent *)event {
+    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
+}
+
+- (IBAction)onPickNewLocationPressed:(id)sender forEvent:(UIEvent *)event {
+    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
 }
 
 - (IBAction)onForwardPressed:(id)sender {

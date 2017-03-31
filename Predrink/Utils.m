@@ -34,22 +34,21 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-+ (void)rippleEffect:(id)sender withColor:(UIColor *)color forEvent:(UIEvent *)event {
-    UIButton *button = (UIButton *)sender;
-    NSSet *touches = [event touchesForView:sender];
++ (void)rippleEffect:(UIView *)view withColor:(UIColor *)color forEvent:(UIEvent *)event {
+    NSSet *touches = [event touchesForView:view];
     UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView:sender];    CGFloat radius = 0;
-    if(point.x > button.bounds.size.width - point.x) {
+    CGPoint point = [touch locationInView:view];    CGFloat radius = 0;
+    if(point.x > view.bounds.size.width - point.x) {
         radius = point.x;
     } else {
-        radius = button.bounds.size.width - point.x;
+        radius = view.bounds.size.width - point.x;
     }
     CAShapeLayer *shape = [[CAShapeLayer alloc] init];
-    shape.frame = button.bounds;
+    shape.frame = view.bounds;
     UIBezierPath *fromPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - 0.1, point.y - 0.1, 0.2, 0.2)];
     UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - radius, point.y - radius, radius * 2, radius * 2)];
     [shape setFillColor:color.CGColor];
-    [button.layer addSublayer:shape];
+    [view.layer addSublayer:shape];
     
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
     anim.fromValue = (id)fromPath.CGPath;
