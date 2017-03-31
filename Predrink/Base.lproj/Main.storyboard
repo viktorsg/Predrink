@@ -87,20 +87,20 @@
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9k-MA-vhg">
-                                                        <rect key="frame" x="88" y="50" width="199.5" height="36"/>
+                                                        <rect key="frame" x="88" y="50" width="200" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcp-5j-l7E">
-                                                        <rect key="frame" x="50" y="277.5" width="275" height="2"/>
+                                                        <rect key="frame" x="50" y="278" width="275" height="2"/>
                                                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="VXJ-Md-Jeo"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwE-RL-BUi">
-                                                        <rect key="frame" x="62" y="284.5" width="125" height="30"/>
+                                                        <rect key="frame" x="62" y="285" width="125" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="SJF-kN-m4L"/>
                                                             <constraint firstAttribute="width" constant="125" id="ZZn-gK-OIw"/>
@@ -110,7 +110,7 @@
                                                         <state key="normal" title="SAVE"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1N-xm-Sgg">
-                                                        <rect key="frame" x="188" y="284.5" width="125" height="30"/>
+                                                        <rect key="frame" x="188" y="285" width="125" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="OMC-QA-9RF"/>
                                                             <constraint firstAttribute="width" constant="125" id="nk4-QV-gTS"/>
@@ -120,23 +120,44 @@
                                                         <state key="normal" title="EDIT"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S95-It-c5K">
-                                                        <rect key="frame" x="174" y="346.5" width="27.5" height="24"/>
+                                                        <rect key="frame" x="174" y="347" width="28" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzR-Wi-tGa">
-                                                        <rect key="frame" x="10" y="272.5" width="355" height="0.0"/>
+                                                        <rect key="frame" x="10" y="273" width="355" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TPl-F4-TyC">
+                                                        <rect key="frame" x="85" y="421" width="205" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="205" id="o7F-dj-V87"/>
+                                                            <constraint firstAttribute="height" constant="35" id="qRf-Wd-SuO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Pick from My Places" image="star"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RVq-p3-5Ia">
+                                                        <rect key="frame" x="95.5" y="461" width="185" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="OqH-59-iH1"/>
+                                                            <constraint firstAttribute="width" constant="185" id="hxT-Wh-oMl"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Pick a new location" image="pin_small"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="Pcp-5j-l7E" secondAttribute="trailing" constant="50" id="1yn-s5-39t"/>
                                                     <constraint firstItem="S95-It-c5K" firstAttribute="centerX" secondItem="F2U-fm-wdO" secondAttribute="centerX" id="8HO-bS-l9C"/>
                                                     <constraint firstItem="Pcp-5j-l7E" firstAttribute="leading" secondItem="F2U-fm-wdO" secondAttribute="leading" constant="50" id="DY2-2T-BVY"/>
+                                                    <constraint firstItem="TPl-F4-TyC" firstAttribute="centerX" secondItem="F2U-fm-wdO" secondAttribute="centerX" id="FzU-cx-rf0"/>
                                                     <constraint firstItem="m9k-MA-vhg" firstAttribute="centerX" secondItem="F2U-fm-wdO" secondAttribute="centerX" id="IOC-vC-Z9i"/>
                                                     <constraint firstItem="UNU-Ck-stc" firstAttribute="leading" secondItem="F2U-fm-wdO" secondAttribute="leading" id="JOn-lk-EWv"/>
                                                     <constraint firstItem="S95-It-c5K" firstAttribute="centerY" secondItem="F2U-fm-wdO" secondAttribute="centerY" constant="25" id="NcZ-4D-6L9"/>
@@ -144,11 +165,14 @@
                                                     <constraint firstAttribute="bottom" secondItem="UNU-Ck-stc" secondAttribute="bottom" id="QTZ-HB-Oyy"/>
                                                     <constraint firstItem="Pcp-5j-l7E" firstAttribute="top" secondItem="IzR-Wi-tGa" secondAttribute="bottom" constant="5" id="U5R-nS-ObQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="IzR-Wi-tGa" secondAttribute="trailing" constant="10" id="Vzt-Q2-EQ1"/>
+                                                    <constraint firstItem="TPl-F4-TyC" firstAttribute="centerY" secondItem="F2U-fm-wdO" secondAttribute="centerY" constant="105" id="e4t-YN-Wkh"/>
                                                     <constraint firstItem="Pcp-5j-l7E" firstAttribute="centerY" secondItem="F2U-fm-wdO" secondAttribute="centerY" constant="-55" id="fdF-OM-ku3"/>
+                                                    <constraint firstItem="RVq-p3-5Ia" firstAttribute="centerX" secondItem="F2U-fm-wdO" secondAttribute="centerX" id="hXP-h1-QaB"/>
                                                     <constraint firstItem="IzR-Wi-tGa" firstAttribute="leading" secondItem="F2U-fm-wdO" secondAttribute="leading" constant="10" id="j42-6I-bwK"/>
                                                     <constraint firstItem="UNU-Ck-stc" firstAttribute="top" secondItem="F2U-fm-wdO" secondAttribute="top" id="j6G-Te-xCk"/>
                                                     <constraint firstItem="m9k-MA-vhg" firstAttribute="top" secondItem="F2U-fm-wdO" secondAttribute="top" constant="50" id="nPD-pB-Td0"/>
                                                     <constraint firstItem="c1N-xm-Sgg" firstAttribute="top" secondItem="Pcp-5j-l7E" secondAttribute="bottom" constant="5" id="nz5-GD-9z2"/>
+                                                    <constraint firstItem="RVq-p3-5Ia" firstAttribute="top" secondItem="TPl-F4-TyC" secondAttribute="bottom" constant="5" id="r6Y-xM-v6L"/>
                                                     <constraint firstItem="c1N-xm-Sgg" firstAttribute="centerX" secondItem="F2U-fm-wdO" secondAttribute="centerX" constant="63" id="rFr-tv-4fM"/>
                                                     <constraint firstAttribute="trailing" secondItem="UNU-Ck-stc" secondAttribute="trailing" id="uAq-01-4gM"/>
                                                     <constraint firstItem="QwE-RL-BUi" firstAttribute="top" secondItem="Pcp-5j-l7E" secondAttribute="bottom" constant="5" id="wOc-XG-R0f"/>
@@ -348,7 +372,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0u-NV-Hoc">
-                                        <rect key="frame" x="50" y="13" width="65.5" height="19.5"/>
+                                        <rect key="frame" x="50" y="13" width="66" height="20"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -939,8 +963,10 @@
         <image name="location_bg" width="487" height="325"/>
         <image name="logo" width="180" height="80"/>
         <image name="pin" width="24" height="24"/>
+        <image name="pin_small" width="20" height="20"/>
         <image name="profile_grey" width="20" height="20"/>
         <image name="settings" width="20" height="20"/>
         <image name="splash_logo" width="90" height="90"/>
+        <image name="star" width="20" height="20"/>
     </resources>
 </document>
