@@ -17,6 +17,7 @@
 		7786AFB21E8B8C5D00FBDFD0 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */; };
 		7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFB41E8BE60300FBDFD0 /* ProfileViewController.m */; };
 		779881E01E87EF6A0052D284 /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 779881DF1E87EF6A0052D284 /* ControlButton.m */; };
+		77A12BA91E8FA92400E42E05 /* Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A12BA81E8FA92400E42E05 /* Animations.m */; };
 		77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */; };
 		77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */; };
 		77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */; };
@@ -73,6 +74,8 @@
 		7786AFB41E8BE60300FBDFD0 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		779881DE1E87EF6A0052D284 /* ControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlButton.h; sourceTree = "<group>"; };
 		779881DF1E87EF6A0052D284 /* ControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlButton.m; sourceTree = "<group>"; };
+		77A12BA71E8FA92400E42E05 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
+		77A12BA81E8FA92400E42E05 /* Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animations.m; sourceTree = "<group>"; };
 		77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 			children = (
 				77F4FD0C1E87952C0037FDB6 /* Utils.h */,
 				77F4FD0D1E87952C0037FDB6 /* Utils.m */,
+				77A12BA71E8FA92400E42E05 /* Animations.h */,
+				77A12BA81E8FA92400E42E05 /* Animations.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */,
 				77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */,
 				777B904C1E8D79DD001C64B7 /* AddEventViewController.m in Sources */,
+				77A12BA91E8FA92400E42E05 /* Animations.m in Sources */,
 				772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */,
 				77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */,
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,

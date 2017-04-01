@@ -13,6 +13,4 @@
 
 + (UIColor *) colorFromHexString:(NSString *)hexString;
 
-+ (void)rippleEffect:(UIView *)view withColor:(UIColor *)color forEvent:(UIEvent *)event;
-
 @end
