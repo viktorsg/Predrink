@@ -21,6 +21,9 @@
 		77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */; };
 		77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */; };
 		77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */; };
+		77B726141E9038CF00739B00 /* FirebaseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B726131E9038CF00739B00 /* FirebaseUtils.m */; };
+		77B726171E903DAD00739B00 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B726161E903DAD00739B00 /* User.m */; };
+		77BB1EA21E9015EA008C86E4 /* MyPlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BB1EA11E9015EA008C86E4 /* MyPlaceTableViewCell.m */; };
 		77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EAF3F91E72E28F00B796F9 /* HomeViewController.m */; };
 		77EAF4011E72EEA900B796F9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FD1E72EEA900B796F9 /* FBSDKCoreKit.framework */; };
 		77EAF4021E72EEA900B796F9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FE1E72EEA900B796F9 /* FBSDKLoginKit.framework */; };
@@ -81,6 +84,12 @@
 		77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77A9A87C1E8E32BC000DA064 /* AnimationTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTransitioning.h; sourceTree = "<group>"; };
 		77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTransitioning.m; sourceTree = "<group>"; };
+		77B726121E9038CF00739B00 /* FirebaseUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseUtils.h; sourceTree = "<group>"; };
+		77B726131E9038CF00739B00 /* FirebaseUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseUtils.m; sourceTree = "<group>"; };
+		77B726151E903DAD00739B00 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		77B726161E903DAD00739B00 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		77BB1EA01E9015EA008C86E4 /* MyPlaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPlaceTableViewCell.h; sourceTree = "<group>"; };
+		77BB1EA11E9015EA008C86E4 /* MyPlaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPlaceTableViewCell.m; sourceTree = "<group>"; };
 		77EAF3F81E72E28F00B796F9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		77EAF3F91E72E28F00B796F9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77EAF3FC1E72EEA900B796F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -173,8 +182,28 @@
 			children = (
 				77A9A87C1E8E32BC000DA064 /* AnimationTransitioning.h */,
 				77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */,
+				77B726151E903DAD00739B00 /* User.h */,
+				77B726161E903DAD00739B00 /* User.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		77B726111E90301500739B00 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				77B726121E9038CF00739B00 /* FirebaseUtils.h */,
+				77B726131E9038CF00739B00 /* FirebaseUtils.m */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		77BB1E9F1E9015D5008C86E4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				77BB1EA01E9015EA008C86E4 /* MyPlaceTableViewCell.h */,
+				77BB1EA11E9015EA008C86E4 /* MyPlaceTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		77EAF3FB1E72EE8700B796F9 /* Frameworks */ = {
@@ -270,9 +299,11 @@
 		77F5B0751E717DD500802904 /* Predrink */ = {
 			isa = PBXGroup;
 			children = (
+				77B726111E90301500739B00 /* Firebase */,
 				77EAF3FB1E72EE8700B796F9 /* Frameworks */,
 				779881DD1E87EF570052D284 /* UIClasses */,
 				77A9A87B1E8E3276000DA064 /* Classes */,
+				77BB1E9F1E9015D5008C86E4 /* Cells */,
 				77F4FD121E87AC460037FDB6 /* Utils */,
 				77265A341E8E61DD0023D096 /* DialogViewControllers */,
 				77F4FD0F1E87ABE50037FDB6 /* ViewControllers */,
@@ -507,7 +538,9 @@
 			files = (
 				77F5B07B1E717DD500802904 /* AppDelegate.m in Sources */,
 				7786AFB21E8B8C5D00FBDFD0 /* EventsListViewController.m in Sources */,
+				77BB1EA21E9015EA008C86E4 /* MyPlaceTableViewCell.m in Sources */,
 				7786AFAF1E8B833500FBDFD0 /* EventsViewController.m in Sources */,
+				77B726141E9038CF00739B00 /* FirebaseUtils.m in Sources */,
 				77265A371E8E62010023D096 /* DialogAddEventViewController.m in Sources */,
 				77F5B0781E717DD500802904 /* main.m in Sources */,
 				77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */,
@@ -518,6 +551,7 @@
 				77A12BA91E8FA92400E42E05 /* Animations.m in Sources */,
 				772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */,
 				77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */,
+				77B726171E903DAD00739B00 /* User.m in Sources */,
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,
 				7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */,
 				77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */,

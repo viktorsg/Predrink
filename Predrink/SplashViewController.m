@@ -8,6 +8,11 @@
 
 #import "SplashViewController.h"
 
+#import "User.h"
+
+#import "FirebaseUtils.h"
+#import <FirebaseAuth/FirebaseAuth.h>
+
 @interface SplashViewController ()
 
 @end
@@ -16,6 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [FirebaseUtils instantiateDatabse];
+    
+    FIRUser *user = [FIRAuth auth].currentUser;
+    if(user == nil) {
+        [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+    } else {
+        [user reloadWithCompletion:nil];
+        
+        [[[[FirebaseUtils getUsersReference] child:@"users"] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            User *user = [snapshot value];
+        } withCancelBlock:^(NSError * _Nonnull error) {
+            NSLog(@"%@", error.localizedDescription);
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

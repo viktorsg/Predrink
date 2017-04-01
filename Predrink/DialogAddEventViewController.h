@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DialogAddEventViewController : UIViewController<UITextViewDelegate>
+@interface DialogAddEventViewController : UIViewController<UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) void (^onDismiss)(NSString *address);
 
