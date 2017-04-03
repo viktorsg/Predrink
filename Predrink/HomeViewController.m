@@ -14,6 +14,7 @@
 #import "ControlButton.h"
 
 #import "Utils.h"
+#import "Animations.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 
@@ -161,25 +162,25 @@
 }
 
 - (IBAction)onAddPressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33F44336"] forEvent:event];
+    [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33F44336"] forEvent:event];
 }
 
 - (IBAction)onBlursPressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
+    [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     [self customizeButton:0];
     [self buttonsControll:0];
 }
 
 - (IBAction)onEventsPressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
+    [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     [self customizeButton:1];
     [self buttonsControll:1];
 }
 
 - (IBAction)onProfilePressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
+    [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33FFFFFF"] forEvent:event];
     
     if(self.profileContainerView.hidden == YES) {
         [self.profileViewController animateMyEventsView];

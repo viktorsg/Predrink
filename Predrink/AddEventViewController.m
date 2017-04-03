@@ -7,8 +7,10 @@
 //
 
 #import "AddEventViewController.h"
+#import "DialogAddEventViewController.h"
 
 #import "Utils.h"
+#import "Animations.h"
 
 @interface AddEventViewController ()
 
@@ -26,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 
 @property (assign, nonatomic) long page;
+
+@property (assign, nonatomic) BOOL isForEditingAddress;
 
 @end
 
@@ -90,20 +94,27 @@
         }
     }];
 }
+
 - (IBAction)onSavePressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
+    [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
 }
 
 - (IBAction)onEditPressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
+    [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
+    
+    self.isForEditingAddress = YES;
+    [self performSegueWithIdentifier:@"DialogAddEventSegue" sender:self];
 }
 
 - (IBAction)onPickFromMyPlacesPressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
+    [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
+    
+    self.isForEditingAddress = NO;
+    [self performSegueWithIdentifier:@"DialogAddEventSegue" sender:self];
 }
 
 - (IBAction)onPickNewLocationPressed:(id)sender forEvent:(UIEvent *)event {
-    [Utils rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#BFF44336"] forEvent:event];
+    [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
 }
 
 - (IBAction)onForwardPressed:(id)sender {
@@ -127,14 +138,19 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.destinationViewController isKindOfClass:[DialogAddEventViewController class]]) {
+        DialogAddEventViewController *dialogAddEventViewController = (DialogAddEventViewController *)segue.destinationViewController;
+        dialogAddEventViewController.isForEditingAddress = self.isForEditingAddress;
+        dialogAddEventViewController.address = self.locationLabel.text;
+        dialogAddEventViewController.onDismiss = ^(NSString *address) {
+            self.locationLabel.text = address;
+        };
+    }
 }
-*/
+
 
 @end

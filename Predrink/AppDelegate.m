@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+#import "LoginViewController.h"
 #import "AddEventViewController.h"
 
 #import "AnimationTransitioning.h"
@@ -67,14 +68,18 @@
     return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
--(id<UIViewControllerAnimatedTransitioning>) navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+- (id<UIViewControllerAnimatedTransitioning>) navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     AnimationTransitioning *animationTransitioning = [[AnimationTransitioning alloc] init];
     if(operation == UINavigationControllerOperationPush) {
         if([toVC isKindOfClass:[AddEventViewController class]]) {
             animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
+        } else if([toVC isKindOfClass:[LoginViewController class]]) {
+            animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
         }
     } else if(operation == UINavigationControllerOperationPop) {
         if([fromVC isKindOfClass:[AddEventViewController class]]) {
+            animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
+        } else if([fromVC isKindOfClass:[LoginViewController class]]) {
             animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
         }
     }

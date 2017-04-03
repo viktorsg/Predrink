@@ -10,6 +10,7 @@
 
 #import "Utils.h"
 
+#import <FirebaseAuth/FirebaseAuth.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
@@ -39,6 +40,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
+        if(user != nil) {
+            
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,6 +134,30 @@
     self.fbLoginButton.hidden = YES;
     [self.loginIndicator startAnimating];
     
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        if(result != nil && error == nil) {
+            [[FIRAuth auth] signInWithCredential:[FIRFacebookAuthProvider credentialWithAccessToken:[[FBSDKAccessToken currentAccessToken] tokenString]] completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+                if(error != nil) {
+                    
+                }
+            }];
+            
+            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}]
+             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                 [self.loginIndicator stopAnimating];
+                 self.fbLoginButton.hidden = NO;
+                 
+                 if(result != nil && error == nil) {
+                     
+                     //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
+                 }
+             }];
+            //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
+        }
+    }];
+    
+    /*
     if([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
@@ -134,7 +165,7 @@
              self.fbLoginButton.hidden = NO;
              
              if(result != nil && error == nil) {
-                 [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+                 //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
              }
          }];
     } else {
@@ -146,13 +177,17 @@
                     self.fbLoginButton.hidden = NO;
                     
                     if(error != nil) {
-                        
+                        [[FIRAuth auth] signInWithCredential:[FIRFacebookAuthProvider credentialWithAccessToken:[[FBSDKAccessToken currentAccessToken] tokenString]] completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+                            if(error != nil) {
+                                
+                            }
+                        }];
                     }
                 }];
-                [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+                //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
             }
         }];
-    }
+    }*/
 }
 
 /*

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DialogAddEventViewController : UIViewController
+@interface DialogAddEventViewController : UIViewController<UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) void (^onDismiss)(NSString *address);
+
+@property (strong, nonatomic) NSString *address;
+
+@property (assign, nonatomic) BOOL isForEditingAddress;
 
 @end
