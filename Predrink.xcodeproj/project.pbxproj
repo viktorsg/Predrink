@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		158A62AC32972031935D0FA2 /* Pods_Predrink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954904F984E7365E2F493812 /* Pods_Predrink.framework */; };
-		77265A371E8E62010023D096 /* DialogAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77265A361E8E62010023D096 /* DialogAddEventViewController.m */; };
+		7714A7111E9246AB0013C5AA /* DialogPickImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7714A7101E9246AB0013C5AA /* DialogPickImageViewController.m */; };
+		77265A371E8E62010023D096 /* DialogLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77265A361E8E62010023D096 /* DialogLocationViewController.m */; };
 		772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772FC2711E8AECC100A885B0 /* SplashViewController.m */; };
 		772FC2741E8AEDA800A885B0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772FC2731E8AEDA800A885B0 /* Bolts.framework */; };
 		77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77771BD61E72A91900A26AD9 /* LoginViewController.m */; };
@@ -59,8 +60,10 @@
 
 /* Begin PBXFileReference section */
 		3E3442D93CD19F2E7A84EDC8 /* Pods-Predrink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predrink.release.xcconfig"; path = "Pods/Target Support Files/Pods-Predrink/Pods-Predrink.release.xcconfig"; sourceTree = "<group>"; };
-		77265A351E8E62010023D096 /* DialogAddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogAddEventViewController.h; sourceTree = "<group>"; };
-		77265A361E8E62010023D096 /* DialogAddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogAddEventViewController.m; sourceTree = "<group>"; };
+		7714A70F1E9246AB0013C5AA /* DialogPickImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogPickImageViewController.h; sourceTree = "<group>"; };
+		7714A7101E9246AB0013C5AA /* DialogPickImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogPickImageViewController.m; sourceTree = "<group>"; };
+		77265A351E8E62010023D096 /* DialogLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogLocationViewController.h; sourceTree = "<group>"; };
+		77265A361E8E62010023D096 /* DialogLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogLocationViewController.m; sourceTree = "<group>"; };
 		772FC2701E8AECC100A885B0 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		772FC2711E8AECC100A885B0 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		772FC2731E8AEDA800A885B0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../Library/Developer/Xcode/DerivedData/Predrink-fhanhtdxwnqkqvcyhezmzfvvrgat/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
@@ -163,8 +166,10 @@
 		77265A341E8E61DD0023D096 /* DialogViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				77265A351E8E62010023D096 /* DialogAddEventViewController.h */,
-				77265A361E8E62010023D096 /* DialogAddEventViewController.m */,
+				77265A351E8E62010023D096 /* DialogLocationViewController.h */,
+				77265A361E8E62010023D096 /* DialogLocationViewController.m */,
+				7714A70F1E9246AB0013C5AA /* DialogPickImageViewController.h */,
+				7714A7101E9246AB0013C5AA /* DialogPickImageViewController.m */,
 			);
 			name = DialogViewControllers;
 			sourceTree = "<group>";
@@ -534,7 +539,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -549,7 +554,7 @@
 				77BB1EA21E9015EA008C86E4 /* MyPlaceTableViewCell.m in Sources */,
 				7786AFAF1E8B833500FBDFD0 /* EventsViewController.m in Sources */,
 				77B726141E9038CF00739B00 /* FirebaseUtils.m in Sources */,
-				77265A371E8E62010023D096 /* DialogAddEventViewController.m in Sources */,
+				77265A371E8E62010023D096 /* DialogLocationViewController.m in Sources */,
 				77F5B0781E717DD500802904 /* main.m in Sources */,
 				77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */,
 				779881E01E87EF6A0052D284 /* ControlButton.m in Sources */,
@@ -563,6 +568,7 @@
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,
 				7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */,
 				77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */,
+				7714A7111E9246AB0013C5AA /* DialogPickImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
