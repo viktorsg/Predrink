@@ -134,6 +134,8 @@
     self.fbLoginButton.hidden = YES;
     [self.loginIndicator startAnimating];
     
+    [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+    
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if(result != nil && error == nil) {

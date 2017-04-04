@@ -19,7 +19,6 @@
 		779881E01E87EF6A0052D284 /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 779881DF1E87EF6A0052D284 /* ControlButton.m */; };
 		77A12BA91E8FA92400E42E05 /* Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A12BA81E8FA92400E42E05 /* Animations.m */; };
 		77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */; };
-		77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */; };
 		77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */; };
 		77B726141E9038CF00739B00 /* FirebaseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B726131E9038CF00739B00 /* FirebaseUtils.m */; };
 		77B726171E903DAD00739B00 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B726161E903DAD00739B00 /* User.m */; };
@@ -28,6 +27,7 @@
 		77EAF4011E72EEA900B796F9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FD1E72EEA900B796F9 /* FBSDKCoreKit.framework */; };
 		77EAF4021E72EEA900B796F9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FE1E72EEA900B796F9 /* FBSDKLoginKit.framework */; };
 		77EAF4031E72EEA900B796F9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FF1E72EEA900B796F9 /* FBSDKShareKit.framework */; };
+		77F121A51E9195E50055797A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77F121A41E9195E50055797A /* GoogleService-Info.plist */; };
 		77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F4FD0D1E87952C0037FDB6 /* Utils.m */; };
 		77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F4FD141E87E8610037FDB6 /* MapViewController.m */; };
 		77F5A1861E8AEAA5003D5221 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F5A1851E8AEAA5003D5221 /* SDWebImage.framework */; };
@@ -81,7 +81,6 @@
 		77A12BA81E8FA92400E42E05 /* Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animations.m; sourceTree = "<group>"; };
 		77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77A9A87C1E8E32BC000DA064 /* AnimationTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTransitioning.h; sourceTree = "<group>"; };
 		77A9A87D1E8E32BC000DA064 /* AnimationTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTransitioning.m; sourceTree = "<group>"; };
 		77B726121E9038CF00739B00 /* FirebaseUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseUtils.h; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		77EAF3FD1E72EEA900B796F9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		77EAF3FE1E72EEA900B796F9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		77EAF3FF1E72EEA900B796F9 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		77F121A41E9195E50055797A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77F4FD0C1E87952C0037FDB6 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		77F4FD0D1E87952C0037FDB6 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		77F4FD131E87E8610037FDB6 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			children = (
 				77F5B0791E717DD500802904 /* AppDelegate.h */,
 				77F5B07A1E717DD500802904 /* AppDelegate.m */,
-				77A427D01E8AE1C7008CFEB4 /* GoogleService-Info.plist */,
+				77F121A41E9195E50055797A /* GoogleService-Info.plist */,
 				77F5B0871E717DD500802904 /* Info.plist */,
 				77F5B0821E717DD500802904 /* Assets.xcassets */,
 			);
@@ -469,7 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F5B0861E717DD500802904 /* LaunchScreen.storyboard in Resources */,
-				77A427D11E8AE1C7008CFEB4 /* GoogleService-Info.plist in Resources */,
+				77F121A51E9195E50055797A /* GoogleService-Info.plist in Resources */,
 				77F5B0831E717DD500802904 /* Assets.xcassets in Resources */,
 				77F5B0811E717DD500802904 /* Main.storyboard in Resources */,
 			);
