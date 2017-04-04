@@ -81,6 +81,8 @@
                 self.fbLoginButton.alpha = 1.0f;
                 [self.view layoutIfNeeded];
             }];
+            
+            [self performSegueWithIdentifier:@"HomeSegue" sender:self];
         }
     }];
 }

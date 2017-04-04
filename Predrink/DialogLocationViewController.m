@@ -6,14 +6,14 @@
 //  Copyright © 2017 Viktor Georgiev. All rights reserved.
 //
 
-#import "DialogAddEventViewController.h"
+#import "DialogLocationViewController.h"
 
 #import "MyPlaceTableViewCell.h"
 
 #import "Utils.h"
 #import "Animations.h"
 
-@interface DialogAddEventViewController ()
+@interface DialogLocationViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
@@ -31,7 +31,7 @@
 
 @end
 
-@implementation DialogAddEventViewController
+@implementation DialogLocationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

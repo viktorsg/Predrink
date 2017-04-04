@@ -7,7 +7,7 @@
 //
 
 #import "AddEventViewController.h"
-#import "DialogAddEventViewController.h"
+#import "DialogLocationViewController.h"
 
 #import "Utils.h"
 #import "Animations.h"
@@ -95,6 +95,8 @@
     }];
 }
 
+//event place control
+
 - (IBAction)onSavePressed:(id)sender forEvent:(UIEvent *)event {
     [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
 }
@@ -103,18 +105,24 @@
     [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
     
     self.isForEditingAddress = YES;
-    [self performSegueWithIdentifier:@"DialogAddEventSegue" sender:self];
+    [self performSegueWithIdentifier:@"DialogLocationSegue" sender:self];
 }
 
 - (IBAction)onPickFromMyPlacesPressed:(id)sender forEvent:(UIEvent *)event {
     [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
     
     self.isForEditingAddress = NO;
-    [self performSegueWithIdentifier:@"DialogAddEventSegue" sender:self];
+    [self performSegueWithIdentifier:@"DialogLocationSegue" sender:self];
 }
 
 - (IBAction)onPickNewLocationPressed:(id)sender forEvent:(UIEvent *)event {
     [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
+}
+
+//event images control
+
+- (IBAction)onImagePressed:(id)sender {
+    [self performSegueWithIdentifier:@"DialogPickImageSegue" sender:self];
 }
 
 - (IBAction)onForwardPressed:(id)sender {
@@ -142,8 +150,8 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.destinationViewController isKindOfClass:[DialogAddEventViewController class]]) {
-        DialogAddEventViewController *dialogAddEventViewController = (DialogAddEventViewController *)segue.destinationViewController;
+    if([segue.destinationViewController isKindOfClass:[DialogLocationViewController class]]) {
+        DialogLocationViewController *dialogAddEventViewController = (DialogLocationViewController *)segue.destinationViewController;
         dialogAddEventViewController.isForEditingAddress = self.isForEditingAddress;
         dialogAddEventViewController.address = self.locationLabel.text;
         dialogAddEventViewController.onDismiss = ^(NSString *address) {
