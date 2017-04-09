@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -14,14 +16,14 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleURLTypes</key>
+    <key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb584654068396294</string>
+				<string>fb172566806493471</string>
 			</array>
 		</dict>
 		<dict>
@@ -32,11 +34,9 @@
 				<string>com.googleusercontent.apps.1032042654293-06mppge6oijvfnb22vt6pf17qsm9qco4</string>
 			</array>
 		</dict>
-	</array>
-	<key>CFBundleVersion</key>
-	<string>1</string>
+	</array>	
 	<key>FacebookAppID</key>
-	<string>584654068396294</string>
+	<string>172566806493471</string>
 	<key>FacebookDisplayName</key>
 	<string>Predrink</string>
 	<key>LSApplicationQueriesSchemes</key>

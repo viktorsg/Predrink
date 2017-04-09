@@ -92,7 +92,6 @@
 		77B726161E903DAD00739B00 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		77BB1EA01E9015EA008C86E4 /* MyPlaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPlaceTableViewCell.h; sourceTree = "<group>"; };
 		77BB1EA11E9015EA008C86E4 /* MyPlaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPlaceTableViewCell.m; sourceTree = "<group>"; };
-		77E3E5921E917F9B0030E691 /* Predrink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Predrink.entitlements; sourceTree = "<group>"; };
 		77EAF3F81E72E28F00B796F9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		77EAF3F91E72E28F00B796F9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77EAF3FC1E72EEA900B796F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -305,7 +304,6 @@
 		77F5B0751E717DD500802904 /* Predrink */ = {
 			isa = PBXGroup;
 			children = (
-				77E3E5921E917F9B0030E691 /* Predrink.entitlements */,
 				77B726111E90301500739B00 /* Firebase */,
 				77EAF3FB1E72EE8700B796F9 /* Frameworks */,
 				779881DD1E87EF570052D284 /* UIClasses */,
@@ -432,7 +430,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -718,7 +716,6 @@
 			baseConfigurationReference = 88281A5A69D3671C0F26459E /* Pods-Predrink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Predrink/Predrink.entitlements;
 				DEVELOPMENT_TEAM = ZU4T2J82PN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -737,7 +734,6 @@
 			baseConfigurationReference = 3E3442D93CD19F2E7A84EDC8 /* Pods-Predrink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Predrink/Predrink.entitlements;
 				DEVELOPMENT_TEAM = ZU4T2J82PN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

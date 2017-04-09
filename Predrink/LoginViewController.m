@@ -80,9 +80,7 @@
             [UIView animateWithDuration:1.2 animations:^{
                 self.fbLoginButton.alpha = 1.0f;
                 [self.view layoutIfNeeded];
-            }];
-            
-            [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+            }];	
         }
     }];
 }
@@ -136,7 +134,7 @@
     self.fbLoginButton.hidden = YES;
     [self.loginIndicator startAnimating];
     
-    [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+    //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
     
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
