@@ -44,6 +44,8 @@
     [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
         if(user != nil) {
             
+        } else {
+            
         }
     }];
 }
@@ -134,8 +136,6 @@
     self.fbLoginButton.hidden = YES;
     [self.loginIndicator startAnimating];
     
-    //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
-    
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if(result != nil && error == nil) {
@@ -145,51 +145,16 @@
                 }
             }];
             
-            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}]
-             startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                  [self.loginIndicator stopAnimating];
                  self.fbLoginButton.hidden = NO;
                  
                  if(result != nil && error == nil) {
                      
-                     //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
                  }
              }];
-            //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
         }
     }];
-    
-    /*
-    if([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}]
-         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-             [self.loginIndicator stopAnimating];
-             self.fbLoginButton.hidden = NO;
-             
-             if(result != nil && error == nil) {
-                 //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
-             }
-         }];
-    } else {
-        FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-        [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-            if(result != nil && error == nil) {
-                [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile *profile, NSError *error) {
-                    [self.loginIndicator stopAnimating];
-                    self.fbLoginButton.hidden = NO;
-                    
-                    if(error != nil) {
-                        [[FIRAuth auth] signInWithCredential:[FIRFacebookAuthProvider credentialWithAccessToken:[[FBSDKAccessToken currentAccessToken] tokenString]] completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-                            if(error != nil) {
-                                
-                            }
-                        }];
-                    }
-                }];
-                //[self performSegueWithIdentifier:@"HomeSegue" sender:self];
-            }
-        }];
-    }*/
 }
 
 /*
