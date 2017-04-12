@@ -14,6 +14,7 @@
 		772FC2741E8AEDA800A885B0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772FC2731E8AEDA800A885B0 /* Bolts.framework */; };
 		77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77771BD61E72A91900A26AD9 /* LoginViewController.m */; };
 		777B904C1E8D79DD001C64B7 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777B904B1E8D79DD001C64B7 /* AddEventViewController.m */; };
+		777C36AB1E9E0E7400C2FD9E /* UserShortInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777C36AA1E9E0E7400C2FD9E /* UserShortInfoViewController.m */; };
 		7786AFAF1E8B833500FBDFD0 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFAE1E8B833500FBDFD0 /* EventsViewController.m */; };
 		7786AFB21E8B8C5D00FBDFD0 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFB11E8B8C5D00FBDFD0 /* EventsListViewController.m */; };
 		7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786AFB41E8BE60300FBDFD0 /* ProfileViewController.m */; };
@@ -71,6 +72,8 @@
 		77771BD61E72A91900A26AD9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		777B904A1E8D79DD001C64B7 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		777B904B1E8D79DD001C64B7 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		777C36A91E9E0E7400C2FD9E /* UserShortInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserShortInfoViewController.h; sourceTree = "<group>"; };
+		777C36AA1E9E0E7400C2FD9E /* UserShortInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserShortInfoViewController.m; sourceTree = "<group>"; };
 		77867E891E8AE7B40048B7D1 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "../../Library/Developer/Xcode/DerivedData/Predrink-fhanhtdxwnqkqvcyhezmzfvvrgat/Build/Products/Debug-iphonesimulator/SDWebImage/libSDWebImage.a"; sourceTree = "<group>"; };
 		7786AFAD1E8B833500FBDFD0 /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
 		7786AFAE1E8B833500FBDFD0 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				772FC2711E8AECC100A885B0 /* SplashViewController.m */,
 				77771BD51E72A91900A26AD9 /* LoginViewController.h */,
 				77771BD61E72A91900A26AD9 /* LoginViewController.m */,
+				777C36A91E9E0E7400C2FD9E /* UserShortInfoViewController.h */,
+				777C36AA1E9E0E7400C2FD9E /* UserShortInfoViewController.m */,
 				77EAF3F81E72E28F00B796F9 /* HomeViewController.h */,
 				77EAF3F91E72E28F00B796F9 /* HomeViewController.m */,
 				7786AFAD1E8B833500FBDFD0 /* EventsViewController.h */,
@@ -556,6 +561,7 @@
 				77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */,
 				779881E01E87EF6A0052D284 /* ControlButton.m in Sources */,
 				77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */,
+				777C36AB1E9E0E7400C2FD9E /* UserShortInfoViewController.m in Sources */,
 				77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */,
 				777B904C1E8D79DD001C64B7 /* AddEventViewController.m in Sources */,
 				77A12BA91E8FA92400E42E05 /* Animations.m in Sources */,

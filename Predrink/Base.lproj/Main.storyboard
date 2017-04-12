@@ -41,6 +41,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="LoginSegue" id="xvG-Sv-BKf"/>
                         <segue destination="z0c-M4-lZi" kind="show" identifier="MainSegue" id="NvA-rl-R6c"/>
+                        <segue destination="9Aa-wo-hLC" kind="presentation" identifier="SplashInfoSegue" id="k6M-mT-zch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnT-8k-tD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1013,6 +1014,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-231" y="90"/>
+        </scene>
+        <!--User Short Info View Controller-->
+        <scene sceneID="ulg-VL-pEu">
+            <objects>
+                <viewController id="9Aa-wo-hLC" customClass="UserShortInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6O6-Gx-byx"/>
+                        <viewControllerLayoutGuide type="bottom" id="yt0-nJ-a6y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Ew-p2-CAL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="408-wY-ux4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-689" y="847"/>
         </scene>
         <!--Events View Controller-->
         <scene sceneID="1Lh-bM-9Xb">

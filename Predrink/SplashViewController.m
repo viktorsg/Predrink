@@ -31,12 +31,18 @@
     if(user == nil) {
         [self performSegueWithIdentifier:@"LoginSegue" sender:self];
     } else {
-        [user reloadWithCompletion:nil];
+        [user reloadWithCompletion:^(NSError * _Nullable error) {
+            
+        }];
         
-        [[[[FirebaseUtils getUsersReference] child:@"users"] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-            User *user = [snapshot valueInExportFormat];
-            if([user.firstLogin isKindOfClass:[NSNull class]] || user.firstLogin == nil || user.firstLogin) {
-                
+        [[[FirebaseUtils getUsersReference] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            User *user = [[User alloc] init];
+            
+            user.firstLogin = (NSNumber *)[snapshot childSnapshotForPath:@"firstLogin"].value;
+            if([user.firstLogin isKindOfClass:[NSNull class]] || user.firstLogin == nil || user.firstLogin.intValue == 1) {
+                [self performSegueWithIdentifier:@"SplashInfoSegue" sender:self];
+            } else {
+                [self performSegueWithIdentifier:@"MainSegue" sender:self];
             }
         } withCancelBlock:^(NSError * _Nonnull error) {
             NSLog(@"%@", error.localizedDescription);
