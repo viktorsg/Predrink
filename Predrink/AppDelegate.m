@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "LoginViewController.h"
+#import "HomeViewController.h"
 #import "AddEventViewController.h"
 
 #import "AnimationTransitioning.h"
@@ -75,11 +76,15 @@
             animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
         } else if([toVC isKindOfClass:[LoginViewController class]]) {
             animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
+        } else if([toVC isKindOfClass:[HomeViewController class]]) {
+            animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
         }
     } else if(operation == UINavigationControllerOperationPop) {
         if([fromVC isKindOfClass:[AddEventViewController class]]) {
             animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
         } else if([fromVC isKindOfClass:[LoginViewController class]]) {
+            animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
+        } else if([fromVC isKindOfClass:[HomeViewController class]]) {
             animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
         }
     }

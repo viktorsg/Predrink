@@ -18,7 +18,7 @@
 @property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSString *bio;
 @property (strong, nonatomic) NSString *favDrink;
-@property (assign, nonatomic) BOOL firstLogin;
+@property (assign, nonatomic) NSNumber *firstLogin;
 @property (assign, nonatomic) NSNumber *age;
 @property (assign, nonatomic) NSNumber *joinedCount;
 @property (assign, nonatomic) NSNumber *hostedCount;

@@ -10,6 +10,9 @@
 
 #import "Utils.h"
 
+#import "User.h"
+
+#import "FirebaseUtils.h"
 #import <FirebaseAuth/FirebaseAuth.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -41,9 +44,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+    
     [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
         if(user != nil) {
-            
+            [[[FirebaseUtils getUsersReference] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                User *user = [snapshot valueInExportFormat];
+                if(user != nil && ![user isKindOfClass:[NSNull class]]) {
+                    
+                } else {
+                    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday, picture"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                        FBSDKProfile *profile = [FBSDKProfile currentProfile];
+                        
+                        NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
+                        [userDictionary setValue:profile.userID forKey:@"fid"];
+                        [userDictionary setValue:[FIRAuth auth].currentUser.uid forKey:@"uid"];
+                        [userDictionary setValue:profile.firstName forKey:@"firstName"];
+                        [userDictionary setValue:profile.lastName forKey:@"lastName"];
+                        [userDictionary setValue:profile.linkURL.absoluteString forKey:@"profilePictureUri"];
+                        [userDictionary setValue:@"bio" forKey:@"bio"];
+                        [userDictionary setValue:[((NSDictionary *)result) objectForKey:@"birthday"] forKey:@"birthday"];
+                        
+                        [[[FirebaseUtils getUsersReference] child:profile.userID] setValue:userDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                            if(error != nil) {
+                                
+                            }
+                        }];
+                    }];
+                }
+            }];
         } else {
             
         }
@@ -137,22 +166,10 @@
     [self.loginIndicator startAnimating];
     
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions: @[@"public_profile", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    [login logInWithReadPermissions: @[@"public_profile", @"email", @"user_birthday", @"user_friends"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if(result != nil && error == nil) {
             [[FIRAuth auth] signInWithCredential:[FIRFacebookAuthProvider credentialWithAccessToken:[[FBSDKAccessToken currentAccessToken] tokenString]] completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-                if(error != nil) {
-                    
-                }
             }];
-            
-            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                 [self.loginIndicator stopAnimating];
-                 self.fbLoginButton.hidden = NO;
-                 
-                 if(result != nil && error == nil) {
-                     
-                 }
-             }];
         }
     }];
 }

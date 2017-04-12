@@ -24,6 +24,9 @@
     
     [FirebaseUtils instantiateDatabse];
     
+    NSError *error;
+    //[[FIRAuth auth] signOut:&error];
+    
     FIRUser *user = [FIRAuth auth].currentUser;
     if(user == nil) {
         [self performSegueWithIdentifier:@"LoginSegue" sender:self];
@@ -31,7 +34,10 @@
         [user reloadWithCompletion:nil];
         
         [[[[FirebaseUtils getUsersReference] child:@"users"] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-            User *user = [snapshot value];
+            User *user = [snapshot valueInExportFormat];
+            if([user.firstLogin isKindOfClass:[NSNull class]] || user.firstLogin == nil || user.firstLogin) {
+                
+            }
         } withCancelBlock:^(NSError * _Nonnull error) {
             NSLog(@"%@", error.localizedDescription);
         }];
