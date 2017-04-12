@@ -34,4 +34,11 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
++ (void)addShadowToView:(UIView *)view radius:(CGFloat)radius opacity:(CGFloat)opacity offset:(CGSize)offset {
+    view.layer.shadowColor = [UIColor blackColor].CGColor;
+    view.layer.shadowRadius = radius;
+    view.layer.shadowOpacity = opacity;
+    view.layer.shadowOffset = offset;
+}
+
 @end

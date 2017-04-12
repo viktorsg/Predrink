@@ -48,6 +48,8 @@
     
     self.blursButton.titleLabel.textColor = [Utils colorFromHexString:@"#B3FFFFFF"];
     self.profileButton.titleLabel.textColor = [Utils colorFromHexString:@"#B3FFFFFF"];
+    
+    [Utils addShadowToView:self.addButton radius:2.0 opacity:0.5 offset:CGSizeMake(2.0, 2.0)];
 }
 
 - (void)didReceiveMemoryWarning {

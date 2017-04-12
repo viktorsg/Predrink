@@ -57,7 +57,7 @@
                     [userDictionary setValue:[FIRAuth auth].currentUser.uid forKey:@"uid"];
                     [userDictionary setValue:profile.firstName forKey:@"firstName"];
                     [userDictionary setValue:profile.lastName forKey:@"lastName"];
-                    [userDictionary setValue:profile.linkURL.absoluteString forKey:@"profilePictureUri"];
+                    [userDictionary setValue:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?height=450&width=450", profile.userID] forKey:@"profilePictureUri"];
                     [userDictionary setValue:@"1" forKey:@"phoneNumber"];
                     [userDictionary setValue:@"bio" forKey:@"bio"];
                     [userDictionary setValue:@"" forKey:@"favDrink"];

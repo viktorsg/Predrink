@@ -13,4 +13,6 @@
 
 + (UIColor *) colorFromHexString:(NSString *)hexString;
 
++ (void)addShadowToView:(UIView *)view radius:(CGFloat)radius opacity:(CGFloat)opacity offset:(CGSize)offset;
+
 @end
