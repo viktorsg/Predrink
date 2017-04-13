@@ -14,6 +14,8 @@
 
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
 
++ (NSMutableDictionary *)getUserAsDictionary;
+
 + (void)setCurrentUser:(User *)user;
 
 + (User *)currentUser;

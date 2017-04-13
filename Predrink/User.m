@@ -26,12 +26,32 @@ static User * currentUser;
         self.bio = (NSString *)[snapshot childSnapshotForPath:@"bio"].value;
         self.favDrink = (NSString *)[snapshot childSnapshotForPath:@"favDrink"].value;
         self.firstLogin = (NSNumber *)[snapshot childSnapshotForPath:@"firstLogin"].value;
-        self.age = (NSNumber *)[snapshot childSnapshotForPath:@"age"].value;
+        self.age = [NSNumber numberWithInt:((NSNumber *)[snapshot childSnapshotForPath:@"age"].value).intValue];
         self.joinedCount = (NSNumber *)[snapshot childSnapshotForPath:@"joinedCount"].value;
         self.hostedCount = (NSNumber *)[snapshot childSnapshotForPath:@"hostedCount"].value;
     }
     
     return self;
+}
+
++ (NSMutableDictionary *)getUserAsDictionary {
+    NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    [userDictionary setObject:currentUser.uid forKey:@"uid"];
+    [userDictionary setObject:currentUser.fid forKey:@"fid"];
+    [userDictionary setObject:currentUser.firstName forKey:@"firstName"];
+    [userDictionary setObject:currentUser.lastName forKey:@"lastName"];
+    [userDictionary setObject:currentUser.birthday forKey:@"birthday"];
+    [userDictionary setObject:currentUser.profilePictureUri forKey:@"profilePictureUri"];
+    [userDictionary setObject:currentUser.phoneNumber forKey:@"phoneNumber"];
+    [userDictionary setObject:currentUser.bio forKey:@"bio"];
+    [userDictionary setObject:currentUser.favDrink forKey:@"favDrink"];
+    [userDictionary setObject:@(currentUser.firstLogin.intValue) forKey:@"firstLogin"];
+    [userDictionary setObject:currentUser.age forKey:@"age"];
+    [userDictionary setObject:currentUser.joinedCount forKey:@"joinedCount"];
+    [userDictionary setObject:currentUser.hostedCount forKey:@"hostedCount"];
+    
+    return userDictionary;
 }
 
 + (void)setCurrentUser:(User *)user {

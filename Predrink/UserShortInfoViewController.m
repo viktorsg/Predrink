@@ -183,6 +183,11 @@
 
 - (IBAction)onCheckPressed:(id)sender forEvent:(UIEvent *)event {
     [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33F44336"] forEvent:event];
+    
+    NSMutableDictionary *userDictionary = [User getUserAsDictionary];
+    if(userDictionary != nil) {
+        
+    }
 }
 
 /*
