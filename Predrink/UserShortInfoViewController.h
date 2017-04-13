@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserShortInfoViewController : UIViewController
+@interface UserShortInfoViewController : UIViewController<UITextFieldDelegate>
 
 @end
