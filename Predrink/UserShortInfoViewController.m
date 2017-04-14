@@ -130,10 +130,10 @@
 
 - (void)showBioSymbolCount:(BOOL)showBio {
     self.bioSymbolCountLabel.hidden = !showBio;
-    self.bioUnderlineView.alpha = showBio ? 1.0f : 0.2f;
+    self.bioUnderlineView.alpha = showBio ? 1.0f : 0.4f;
     
     self.drinkSymbolCountLabel.hidden = showBio;
-    self.drinkUnderlineView.alpha = showBio ? 0.2f : 1.0f;
+    self.drinkUnderlineView.alpha = showBio ? 0.4f : 1.0f;
 }
 
 - (void)showError:(NSString *)message {
@@ -148,6 +148,8 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if(textField == self.bioTextField) {
         [self animateViewFrame:CGRectMake(self.view.frame.origin.x, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
+        
+        [self showBioSymbolCount:YES];
     } else {
         CGRect frameRelativeToParent = [textField convertRect:textField.bounds toView:self.view];
         if(!CGRectIsNull(frameRelativeToParent)) {
@@ -155,6 +157,8 @@
                 [self animateViewFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.size.height - 260 - frameRelativeToParent.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
             }
         }
+        
+        [self showBioSymbolCount:NO];
     }
 }
 
@@ -207,6 +211,8 @@
     if(bio.length == 0 || drink.length == 0) {
         [self showError:@"Please fill all fields!"];
     } else {
+        [self animateViewFrame:CGRectMake(self.view.frame.origin.x, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
+        
         User *user = [User currentUser];
         NSMutableDictionary *userDictionary = [User getUserAsDictionary:user];
         
@@ -220,12 +226,13 @@
                 user.favDrink = drink;
                 user.firstLogin = [NSNumber numberWithInt:0];
                 [User setCurrentUser:user];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                
                 if(self.loginViewController != nil) {
                     [self.loginViewController performSegueWithIdentifier:@"HomeSegue" sender:self.loginViewController];
                 } else {
                     [self.splashViewController performSegueWithIdentifier:@"HomeSegue" sender:self.splashViewController];
                 }
+                [self dismissViewControllerAnimated:YES completion:nil];
             } else {
                 [self showError:@"Failed to update user information"];
             }

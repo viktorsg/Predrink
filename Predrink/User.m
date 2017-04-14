@@ -8,11 +8,13 @@
 
 #import "User.h"
 
+#import "FirebaseUtils.h"
+#import <FirebaseAuth/FirebaseAuth.h>
 #import <FirebaseDatabase/FirebaseDatabase.h>
 
 @implementation User
 
-static User * currentUser;
+static User *currentUser;
 
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot {
     if (self = [super init]) {
@@ -76,6 +78,19 @@ static User * currentUser;
 }
 
 + (User *)currentUser {
+    if(currentUser != nil) {
+        return currentUser;
+    } else {
+//        [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+//            
+//            User *user = [[User alloc] initWithSnapshot:snapshot];
+//            [User setCurrentUser:user];
+//            
+//            return user;
+//         
+//        }];
+    }
+    
     return currentUser;
 }
 

@@ -29,7 +29,7 @@
     
     //[[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid].ref removeValue];
     NSError *error;
-    //[[FIRAuth auth] signOut:&error];
+    [[FIRAuth auth] signOut:&error];
     
     FIRUser *user = [FIRAuth auth].currentUser;
     if(user == nil) {
