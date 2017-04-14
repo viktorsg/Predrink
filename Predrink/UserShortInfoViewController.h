@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class SplashViewController;
+@class LoginViewController;
+
 @interface UserShortInfoViewController : UIViewController<UITextFieldDelegate>
+
+@property (strong, nonatomic) SplashViewController *splashViewController;
+
+@property (strong, nonatomic) LoginViewController *loginViewController;
 
 @end

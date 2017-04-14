@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UserShortInfoViewController.h"
 
 #import "Utils.h"
 
@@ -41,6 +42,9 @@
 
 @implementation LoginViewController
 
+
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,33 +55,61 @@
             [[[FirebaseUtils getUsersReference] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields" : @"birthday, picture"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                     FBSDKProfile *profile = [FBSDKProfile currentProfile];
+                    NSDictionary *fbInformationDictionary = (NSDictionary *)result;
+                    NSString *birthday = [fbInformationDictionary objectForKey:@"birthday"];
                     
-                    NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
-                    [userDictionary setValue:profile.userID forKey:@"fid"];
-                    [userDictionary setValue:[FIRAuth auth].currentUser.uid forKey:@"uid"];
-                    [userDictionary setValue:profile.firstName forKey:@"firstName"];
-                    [userDictionary setValue:profile.lastName forKey:@"lastName"];
-                    [userDictionary setValue:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?height=450&width=450", profile.userID] forKey:@"profilePictureUri"];
-                    [userDictionary setValue:@"1" forKey:@"phoneNumber"];
-                    [userDictionary setValue:@"bio" forKey:@"bio"];
-                    [userDictionary setValue:@"" forKey:@"favDrink"];
-                    [userDictionary setValue:@YES forKey:@"firstLogin"];
-                    [userDictionary setValue:[NSNumber numberWithInt:21] forKey:@"age"];
-                    [userDictionary setValue:[NSNumber numberWithInt:0] forKey:@"joinedCount"];
-                    [userDictionary setValue:[NSNumber numberWithInt:0] forKey:@"hostedCount"];
-                    [userDictionary setValue:[((NSDictionary *)result) objectForKey:@"birthday"] forKey:@"birthday"];
-                    
-                    [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] setValue:userDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-                        if(error == nil) {
-                            
-                        } else {
-                            [self showError:@"User registration failed"];
-                        }
-                    }];
+                    if(snapshot.childrenCount > 0) {
+                        User *user = [[User alloc] initWithSnapshot:snapshot];
+                        NSMutableDictionary *userDictionary = [User getUserAsDictionary:user];
+                        
+                        [userDictionary setValue:profile.firstName forKey:@"firstName"];
+                        [userDictionary setValue:profile.lastName forKey:@"lastName"];
+                        [userDictionary setValue:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?height=450&width=450", profile.userID] forKey:@"profilePictureUri"];
+                        [userDictionary setValue:[self yearsBetweenCurrentDateAnd:birthday] forKey:@"age"];
+                        
+                        [[[FirebaseUtils getUsersReference] child:user.uid] updateChildValues:userDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                            if(error == nil) {
+                                user.firstName = profile.firstName;
+                                user.lastName = profile.lastName;
+                                user.profilePictureUri = [userDictionary objectForKey:@"profilePictureUri"];
+                                [User setCurrentUser:user];
+                                
+                                if([user.firstLogin isKindOfClass:[NSNull class]] || user.firstLogin == nil || user.firstLogin.intValue == 1) {
+                                    [self performSegueWithIdentifier:@"UserInfoSegue" sender:self];
+                                } else {
+                                    [self performSegueWithIdentifier:@"HomeSegue" sender:self];
+                                }
+                            } else {
+                                [self showError:@"Failed to update user information"];
+                            }
+                        }];
+                    } else {
+                        NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
+                        [userDictionary setValue:profile.userID forKey:@"fid"];
+                        [userDictionary setValue:[FIRAuth auth].currentUser.uid forKey:@"uid"];
+                        [userDictionary setValue:profile.firstName forKey:@"firstName"];
+                        [userDictionary setValue:profile.lastName forKey:@"lastName"];
+                        [userDictionary setValue:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?height=450&width=450", profile.userID] forKey:@"profilePictureUri"];
+                        [userDictionary setValue:@"" forKey:@"bio"];
+                        [userDictionary setValue:@"" forKey:@"favDrink"];
+                        [userDictionary setValue:@YES forKey:@"firstLogin"];
+                        [userDictionary setValue:[self yearsBetweenCurrentDateAnd:birthday] forKey:@"age"];
+                        [userDictionary setValue:[NSNumber numberWithInt:0] forKey:@"joinedCount"];
+                        [userDictionary setValue:[NSNumber numberWithInt:0] forKey:@"hostedCount"];
+                        [userDictionary setValue:birthday forKey:@"birthday"];
+                        
+                        [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] setValue:userDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                            if(error == nil) {
+                                User *user = [[User alloc] initWithDictionary:userDictionary];
+                                [User setCurrentUser:user];
+                                [self performSegueWithIdentifier:@"UserInfoSegue" sender:self];
+                            } else {
+                                [self showError:@"User registration failed"];
+                            }
+                        }];
+                    }
                 }];
             }];
-            
-            
         } else {
             
         }
@@ -121,12 +153,7 @@
     return YES;
 }
 
-- (void)showError:(NSString *)message {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Predrink" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
-}
+#pragma mark - Design Customizations
 
 - (void)setupGradient {
     self.state = 0;
@@ -169,6 +196,24 @@
     [self.gradient addAnimation:animation forKey:@"animateGradient"];
 }
 
+#pragma mark - Custom Functions
+
+- (void)showError:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Predrink" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (NSNumber *)yearsBetweenCurrentDateAnd:(NSString *)birthday {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM-dd-yyyy";
+    
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear fromDate:[dateFormatter dateFromString:birthday] toDate:[NSDate date] options:0];
+    return [NSNumber numberWithInteger:components.year];
+}
+
 - (IBAction)onFBLoginButtonPressed:(id)sender {
     self.fbLoginButton.hidden = YES;
     [self.loginIndicator startAnimating];
@@ -187,14 +232,14 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.destinationViewController isKindOfClass:[UserShortInfoViewController class]]) {
+        ((UserShortInfoViewController *)segue.destinationViewController).loginViewController = self;
+    }
 }
-*/
+
 
 @end

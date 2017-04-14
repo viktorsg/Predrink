@@ -7,10 +7,13 @@
 //
 
 #import "UserShortInfoViewController.h"
+#import "SplashViewController.h"
+#import "LoginViewController.h"
 
 #import "User.h"
 
 #import "Utils.h"
+#import "FirebaseUtils.h"
 #import "Animations.h"
 
 @interface UserShortInfoViewController ()
@@ -40,6 +43,8 @@
 @end
 
 @implementation UserShortInfoViewController
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -88,12 +93,27 @@
     return YES;
 }
 
+#pragma mark - Design Customizations
+
 - (void)animateView:(UIView *)view withDelay:(CGFloat)delay {
     [self.view layoutIfNeeded];
     [UIView animateWithDuration:1.20 delay:delay options:UIViewAnimationOptionCurveLinear animations:^{
         view.alpha = 1.0f;
         [self.view layoutIfNeeded];
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        if(finished && delay == 4.80f) {
+            self.bioTextField.userInteractionEnabled = YES;
+            self.drinkTextField.userInteractionEnabled = YES;
+        }
+    }];
+}
+
+- (void)animateViewFrame:(CGRect)frame {
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.frame = frame;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)setupGradient {
@@ -106,6 +126,8 @@
     [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
+#pragma mark - Custom Functions
+
 - (void)showBioSymbolCount:(BOOL)showBio {
     self.bioSymbolCountLabel.hidden = !showBio;
     self.bioUnderlineView.alpha = showBio ? 1.0f : 0.2f;
@@ -114,31 +136,26 @@
     self.drinkUnderlineView.alpha = showBio ? 0.2f : 1.0f;
 }
 
-- (void)changeFrameIfNeeded:(UITextField *)textField {
+- (void)showError:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Predrink" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - Delegate Methods
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     if(textField == self.bioTextField) {
-        CGRect frame = self.view.frame;
-        frame = CGRectMake(frame.origin.x, 0.0f, frame.size.width, frame.size.height);
-        self.view.frame = frame;
+        [self animateViewFrame:CGRectMake(self.view.frame.origin.x, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
     } else {
         CGRect frameRelativeToParent = [textField convertRect:textField.bounds toView:self.view];
         if(!CGRectIsNull(frameRelativeToParent)) {
             if(self.view.frame.size.height - 216 <= frameRelativeToParent.origin.y) {
-                CGRect frame = self.view.frame;
-                frame = CGRectMake(frame.origin.x, self.view.frame.size.height - 260 - frameRelativeToParent.origin.y, frame.size.width, frame.size.height);
-                self.view.frame = frame;
+                [self animateViewFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.size.height - 260 - frameRelativeToParent.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
             }
         }
     }
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if(textField == self.bioTextField) {
-        [self showBioSymbolCount:YES];
-    } else {
-        [self showBioSymbolCount:NO];
-    }
-    
-    [self changeFrameIfNeeded:textField];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -167,26 +184,52 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if(textField == self.bioTextField) {
         [self.drinkTextField becomeFirstResponder];
-        
-        [self showBioSymbolCount:NO];
     } else {
         [self.drinkTextField resignFirstResponder];
         
         self.drinkSymbolCountLabel.hidden = YES;
         self.drinkUnderlineView.alpha = 0.2f;
+        
+        [self animateViewFrame:CGRectMake(self.view.frame.origin.x, 0.0f, self.view.frame.size.width, self.view.frame.size.height)];
     }
-    
-    [self changeFrameIfNeeded:textField];
     
     return YES;
 }
 
+#pragma mark - Button Clicks
+
 - (IBAction)onCheckPressed:(id)sender forEvent:(UIEvent *)event {
     [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#33F44336"] forEvent:event];
     
-    NSMutableDictionary *userDictionary = [User getUserAsDictionary];
-    if(userDictionary != nil) {
+    NSString *bio = self.bioTextField.text;
+    NSString *drink = self.drinkTextField.text;
+    
+    if(bio.length == 0 || drink.length == 0) {
+        [self showError:@"Please fill all fields!"];
+    } else {
+        User *user = [User currentUser];
+        NSMutableDictionary *userDictionary = [User getUserAsDictionary:user];
         
+        [userDictionary setValue:bio forKey:@"bio"];
+        [userDictionary setValue:drink forKey:@"favDrink"];
+        [userDictionary setValue:@NO forKey:@"firstLogin"];
+        
+        [[[FirebaseUtils getUsersReference] child:user.uid] updateChildValues:userDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            if(error == nil) {
+                user.bio = bio;
+                user.favDrink = drink;
+                user.firstLogin = [NSNumber numberWithInt:0];
+                [User setCurrentUser:user];
+                [self dismissViewControllerAnimated:YES completion:nil];
+                if(self.loginViewController != nil) {
+                    [self.loginViewController performSegueWithIdentifier:@"HomeSegue" sender:self.loginViewController];
+                } else {
+                    [self.splashViewController performSegueWithIdentifier:@"HomeSegue" sender:self.splashViewController];
+                }
+            } else {
+                [self showError:@"Failed to update user information"];
+            }
+        }];
     }
 }
 

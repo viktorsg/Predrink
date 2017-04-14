@@ -13,8 +13,9 @@
 @interface User : NSObject
 
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
+- (instancetype)initWithDictionary:(NSDictionary *)userDictionary;
 
-+ (NSMutableDictionary *)getUserAsDictionary;
++ (NSMutableDictionary *)getUserAsDictionary:(User *)user;
 
 + (void)setCurrentUser:(User *)user;
 
@@ -26,7 +27,6 @@
 @property (strong, nonatomic) NSString *lastName;
 @property (strong, nonatomic) NSString *birthday;
 @property (strong, nonatomic) NSString *profilePictureUri;
-@property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSString *bio;
 @property (strong, nonatomic) NSString *favDrink;
 @property (assign, nonatomic) NSNumber *firstLogin;

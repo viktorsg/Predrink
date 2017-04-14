@@ -22,10 +22,9 @@ static User * currentUser;
         self.lastName = (NSString *)[snapshot childSnapshotForPath:@"lastName"].value;
         self.birthday = (NSString *)[snapshot childSnapshotForPath:@"birthday"].value;
         self.profilePictureUri = (NSString *)[snapshot childSnapshotForPath:@"profilePictureUri"].value;
-        self.phoneNumber = (NSString *)[snapshot childSnapshotForPath:@"phoneNumber"].value;
         self.bio = (NSString *)[snapshot childSnapshotForPath:@"bio"].value;
         self.favDrink = (NSString *)[snapshot childSnapshotForPath:@"favDrink"].value;
-        self.firstLogin = (NSNumber *)[snapshot childSnapshotForPath:@"firstLogin"].value;
+        self.firstLogin = [NSNumber numberWithInt:((NSNumber *)[snapshot childSnapshotForPath:@"firstLogin"].value).intValue];
         self.age = [NSNumber numberWithInt:((NSNumber *)[snapshot childSnapshotForPath:@"age"].value).intValue];
         self.joinedCount = (NSNumber *)[snapshot childSnapshotForPath:@"joinedCount"].value;
         self.hostedCount = (NSNumber *)[snapshot childSnapshotForPath:@"hostedCount"].value;
@@ -34,22 +33,40 @@ static User * currentUser;
     return self;
 }
 
-+ (NSMutableDictionary *)getUserAsDictionary {
+- (instancetype)initWithDictionary:(NSDictionary *)userDictionary {
+    if (self = [super init]) {
+        self.uid = (NSString *)[userDictionary objectForKey:@"uid"];
+        self.fid = (NSString *)[userDictionary objectForKey:@"fid"];
+        self.firstName = (NSString *)[userDictionary objectForKey:@"firstName"];
+        self.lastName = (NSString *)[userDictionary objectForKey:@"lastName"];
+        self.birthday = (NSString *)[userDictionary objectForKey:@"birthday"];
+        self.profilePictureUri = (NSString *)[userDictionary objectForKey:@"profilePictureUri"];
+        self.bio = (NSString *)[userDictionary objectForKey:@"bio"];
+        self.favDrink = (NSString *)[userDictionary objectForKey:@"favDrink"];
+        self.firstLogin = (NSNumber *)[userDictionary objectForKey:@"firstLogin"];
+        self.age = (NSNumber *)[userDictionary objectForKey:@"age"];
+        self.joinedCount = (NSNumber *)[userDictionary objectForKey:@"joinedCount"];
+        self.hostedCount = (NSNumber *)[userDictionary objectForKey:@"hostedCount"];
+    }
+    
+    return self;
+}
+
++ (NSMutableDictionary *)getUserAsDictionary:(User *)user {
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
-    [userDictionary setObject:currentUser.uid forKey:@"uid"];
-    [userDictionary setObject:currentUser.fid forKey:@"fid"];
-    [userDictionary setObject:currentUser.firstName forKey:@"firstName"];
-    [userDictionary setObject:currentUser.lastName forKey:@"lastName"];
-    [userDictionary setObject:currentUser.birthday forKey:@"birthday"];
-    [userDictionary setObject:currentUser.profilePictureUri forKey:@"profilePictureUri"];
-    [userDictionary setObject:currentUser.phoneNumber forKey:@"phoneNumber"];
-    [userDictionary setObject:currentUser.bio forKey:@"bio"];
-    [userDictionary setObject:currentUser.favDrink forKey:@"favDrink"];
-    [userDictionary setObject:@(currentUser.firstLogin.intValue) forKey:@"firstLogin"];
-    [userDictionary setObject:currentUser.age forKey:@"age"];
-    [userDictionary setObject:currentUser.joinedCount forKey:@"joinedCount"];
-    [userDictionary setObject:currentUser.hostedCount forKey:@"hostedCount"];
+    [userDictionary setObject:user.uid forKey:@"uid"];
+    [userDictionary setObject:user.fid forKey:@"fid"];
+    [userDictionary setObject:user.firstName forKey:@"firstName"];
+    [userDictionary setObject:user.lastName forKey:@"lastName"];
+    [userDictionary setObject:user.birthday forKey:@"birthday"];
+    [userDictionary setObject:user.profilePictureUri forKey:@"profilePictureUri"];
+    [userDictionary setObject:user.bio forKey:@"bio"];
+    [userDictionary setObject:user.favDrink forKey:@"favDrink"];
+    [userDictionary setObject:@(user.firstLogin.intValue) forKey:@"firstLogin"];
+    [userDictionary setObject:user.age forKey:@"age"];
+    [userDictionary setObject:user.joinedCount forKey:@"joinedCount"];
+    [userDictionary setObject:user.hostedCount forKey:@"hostedCount"];
     
     return userDictionary;
 }

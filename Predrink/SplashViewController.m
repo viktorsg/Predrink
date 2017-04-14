@@ -6,7 +6,10 @@
 //  Copyright © 2017 Viktor Georgiev. All rights reserved.
 //
 
+#import "AppDelegate.h"
+
 #import "SplashViewController.h"
+#import "UserShortInfoViewController.h"
 
 #import "User.h"
 
@@ -24,6 +27,7 @@
     
     [FirebaseUtils instantiateDatabse];
     
+    //[[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid].ref removeValue];
     NSError *error;
     //[[FIRAuth auth] signOut:&error];
     
@@ -31,18 +35,16 @@
     if(user == nil) {
         [self performSegueWithIdentifier:@"LoginSegue" sender:self];
     } else {
-        [user reloadWithCompletion:^(NSError * _Nullable error) {
-            
-        }];
+        [user reloadWithCompletion:nil];
         
         [[[FirebaseUtils getUsersReference] child:user.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
             User *user = [[User alloc] initWithSnapshot:snapshot];
             [User setCurrentUser:user];
             
             if([user.firstLogin isKindOfClass:[NSNull class]] || user.firstLogin == nil || user.firstLogin.intValue == 1) {
-                [self performSegueWithIdentifier:@"SplashInfoSegue" sender:self];
+                [self performSegueWithIdentifier:@"UserInfoSegue" sender:self];
             } else {
-                [self performSegueWithIdentifier:@"MainSegue" sender:self];
+                [self performSegueWithIdentifier:@"HomeSegue" sender:self];
             }
         } withCancelBlock:^(NSError * _Nonnull error) {
             NSLog(@"%@", error.localizedDescription);
@@ -58,14 +60,15 @@
     return YES;
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.destinationViewController isKindOfClass:[UserShortInfoViewController class]]) {
+        ((UserShortInfoViewController *)segue.destinationViewController).splashViewController = self;
+    }
 }
-*/
+
 
 @end

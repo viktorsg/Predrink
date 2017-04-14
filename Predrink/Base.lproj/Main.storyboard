@@ -40,8 +40,8 @@
                     <navigationItem key="navigationItem" id="Ftc-iw-cTE"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="LoginSegue" id="xvG-Sv-BKf"/>
-                        <segue destination="z0c-M4-lZi" kind="show" identifier="MainSegue" id="NvA-rl-R6c"/>
-                        <segue destination="9Aa-wo-hLC" kind="presentation" identifier="SplashInfoSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="k6M-mT-zch"/>
+                        <segue destination="z0c-M4-lZi" kind="show" identifier="HomeSegue" id="NvA-rl-R6c"/>
+                        <segue destination="9Aa-wo-hLC" kind="presentation" identifier="UserInfoSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="k6M-mT-zch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnT-8k-tD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1020,6 +1020,7 @@
                         <outlet property="fbLoginButton" destination="Bxs-Js-Jfe" id="xG1-MT-8BE"/>
                         <outlet property="loginIndicator" destination="Mcv-H8-2A4" id="aIa-vg-FfN"/>
                         <segue destination="z0c-M4-lZi" kind="show" identifier="HomeSegue" id="sAM-Sn-0MA"/>
+                        <segue destination="9Aa-wo-hLC" kind="presentation" identifier="UserInfoSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="mtu-Mu-ApS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1064,9 +1065,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIf-0X-SwI">
-                                <rect key="frame" x="20" y="278.5" width="335" height="40"/>
+                                <rect key="frame" x="20" y="279" width="335" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P5n-oC-jzp">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P5n-oC-jzp">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1085,7 +1086,7 @@
                                         </constraints>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzS-mR-yOi">
-                                        <rect key="frame" x="307.5" y="28" width="27.5" height="12"/>
+                                        <rect key="frame" x="307" y="28" width="28" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1112,15 +1113,15 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your favourite drink?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfq-Dv-zVf">
-                                <rect key="frame" x="71" y="403" width="232.5" height="21"/>
+                                <rect key="frame" x="71" y="403" width="233" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-yo-0hp">
-                                <rect key="frame" x="20" y="438.5" width="335" height="40"/>
+                                <rect key="frame" x="20" y="439" width="335" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Iy-3da">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JGa-Iy-3da">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1139,7 +1140,7 @@
                                         </constraints>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs1-Ct-gh6">
-                                        <rect key="frame" x="313.5" y="28" width="21.5" height="12"/>
+                                        <rect key="frame" x="313" y="28" width="22" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1481,5 +1482,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NvA-rl-R6c"/>
+        <segue reference="k6M-mT-zch"/>
     </inferredMetricsTieBreakers>
 </document>
