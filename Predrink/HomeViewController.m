@@ -186,6 +186,7 @@
     
     if(self.profileContainerView.hidden == YES) {
         [self.profileViewController animateMyEventsView];
+        [self.profileViewController loadInformation];
     }
     
     [self customizeButton:2];

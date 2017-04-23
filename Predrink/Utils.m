@@ -41,4 +41,17 @@
     view.layer.shadowOffset = offset;
 }
 
++ (void)downloadImage:(NSString *)urlString receive:(void (^)(UIImage *profileImage))receive {
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(data != nil) {
+            receive([UIImage imageWithData:data]);
+        }
+    }];
+    [dataTask resume];
+}
+
 @end

@@ -8,11 +8,26 @@
 
 #import "ProfileViewController.h"
 
+#import "User.h"
+#import "Utils.h"
+#import "FirebaseUtils.h"
+
+#import <FirebaseAuth/FirebaseAuth.h>
+
 @interface ProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *profileScrollView;
 
 @property (weak, nonatomic) IBOutlet UIView *myEventsControlView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *blurredProfileImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameAndAgeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *favDrinkLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UILabel *joinedCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hostedCountLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *arrowUpTopConstraint;
 
@@ -27,7 +42,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [Utils downloadImage:[User currentUser].profilePictureUri receive:^(UIImage *profileImage) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.blurredProfileImageView.image = profileImage;
+            self.profileImageView.image = profileImage;
+        });
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,6 +65,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)loadInformation {
+    [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        User *user = [[User alloc] initWithSnapshot:snapshot];
+        [User setCurrentUser:user];
+        
+        self.nameAndAgeLabel.text = [NSString stringWithFormat:@"%@, %@", user.firstName, user.age];
+        self.favDrinkLabel.text = user.favDrink;
+        self.bioLabel.text = user.bio;
+        self.joinedCountLabel.text = [NSString stringWithFormat:@"%d", user.joinedCount.intValue];
+        self.hostedCountLabel.text = [NSString stringWithFormat:@"%d", user.hostedCount.intValue];
+    } withCancelBlock:nil];
 }
 
 - (void)onPageChanged:(int)page {

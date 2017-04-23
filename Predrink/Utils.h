@@ -15,4 +15,6 @@
 
 + (void)addShadowToView:(UIView *)view radius:(CGFloat)radius opacity:(CGFloat)opacity offset:(CGSize)offset;
 
++ (void)downloadImage:(NSString *)urlString receive:(void (^)(UIImage *profileImage))receive;
+
 @end

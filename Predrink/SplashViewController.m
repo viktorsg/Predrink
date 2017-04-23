@@ -27,10 +27,6 @@
     
     [FirebaseUtils instantiateDatabse];
     
-    //[[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid].ref removeValue];
-    NSError *error;
-    [[FIRAuth auth] signOut:&error];
-    
     FIRUser *user = [FIRAuth auth].currentUser;
     if(user == nil) {
         [self performSegueWithIdentifier:@"LoginSegue" sender:self];
@@ -46,9 +42,7 @@
             } else {
                 [self performSegueWithIdentifier:@"HomeSegue" sender:self];
             }
-        } withCancelBlock:^(NSError * _Nonnull error) {
-            NSLog(@"%@", error.localizedDescription);
-        }];
+        } withCancelBlock:nil];
     }
 }
 
