@@ -40,6 +40,10 @@
 		77F5B0861E717DD500802904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F5B0841E717DD500802904 /* LaunchScreen.storyboard */; };
 		77F5B0911E717DD500802904 /* PredrinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B0901E717DD500802904 /* PredrinkTests.m */; };
 		77F5B09C1E717DD500802904 /* PredrinkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F5B09B1E717DD500802904 /* PredrinkUITests.m */; };
+		77F945EB1EADF4C6009B6C3E /* MyAccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F945EA1EADF4C6009B6C3E /* MyAccountTableViewCell.m */; };
+		77F945EE1EADF64D009B6C3E /* SettingsHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F945ED1EADF64D009B6C3E /* SettingsHeaderTableViewCell.m */; };
+		77F945F11EAE4B8C009B6C3E /* SearchRadiusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F945F01EAE4B8C009B6C3E /* SearchRadiusTableViewCell.m */; };
+		77F945F41EAE50A1009B6C3E /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F945F31EAE50A1009B6C3E /* SettingsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +125,14 @@
 		77F5B0971E717DD500802904 /* PredrinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PredrinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F5B09B1E717DD500802904 /* PredrinkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PredrinkUITests.m; sourceTree = "<group>"; };
 		77F5B09D1E717DD500802904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F945E91EADF4C6009B6C3E /* MyAccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountTableViewCell.h; sourceTree = "<group>"; };
+		77F945EA1EADF4C6009B6C3E /* MyAccountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountTableViewCell.m; sourceTree = "<group>"; };
+		77F945EC1EADF64D009B6C3E /* SettingsHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsHeaderTableViewCell.h; sourceTree = "<group>"; };
+		77F945ED1EADF64D009B6C3E /* SettingsHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsHeaderTableViewCell.m; sourceTree = "<group>"; };
+		77F945EF1EAE4B8C009B6C3E /* SearchRadiusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchRadiusTableViewCell.h; sourceTree = "<group>"; };
+		77F945F01EAE4B8C009B6C3E /* SearchRadiusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRadiusTableViewCell.m; sourceTree = "<group>"; };
+		77F945F21EAE50A1009B6C3E /* SettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewCell.h; sourceTree = "<group>"; };
+		77F945F31EAE50A1009B6C3E /* SettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewCell.m; sourceTree = "<group>"; };
 		88281A5A69D3671C0F26459E /* Pods-Predrink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predrink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Predrink/Pods-Predrink.debug.xcconfig"; sourceTree = "<group>"; };
 		954904F984E7365E2F493812 /* Pods_Predrink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Predrink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -210,6 +222,14 @@
 			children = (
 				77BB1EA01E9015EA008C86E4 /* MyPlaceTableViewCell.h */,
 				77BB1EA11E9015EA008C86E4 /* MyPlaceTableViewCell.m */,
+				77F945E91EADF4C6009B6C3E /* MyAccountTableViewCell.h */,
+				77F945EA1EADF4C6009B6C3E /* MyAccountTableViewCell.m */,
+				77F945EC1EADF64D009B6C3E /* SettingsHeaderTableViewCell.h */,
+				77F945ED1EADF64D009B6C3E /* SettingsHeaderTableViewCell.m */,
+				77F945EF1EAE4B8C009B6C3E /* SearchRadiusTableViewCell.h */,
+				77F945F01EAE4B8C009B6C3E /* SearchRadiusTableViewCell.m */,
+				77F945F21EAE50A1009B6C3E /* SettingsTableViewCell.h */,
+				77F945F31EAE50A1009B6C3E /* SettingsTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -561,17 +581,21 @@
 				77A9A87E1E8E32BC000DA064 /* AnimationTransitioning.m in Sources */,
 				779881E01E87EF6A0052D284 /* ControlButton.m in Sources */,
 				77A427CF1E8ADAB0008CFEB4 /* SettingsViewController.m in Sources */,
+				77F945EE1EADF64D009B6C3E /* SettingsHeaderTableViewCell.m in Sources */,
 				777C36AB1E9E0E7400C2FD9E /* UserShortInfoViewController.m in Sources */,
 				77771BD71E72A91900A26AD9 /* LoginViewController.m in Sources */,
 				777B904C1E8D79DD001C64B7 /* AddEventViewController.m in Sources */,
+				77F945F41EAE50A1009B6C3E /* SettingsTableViewCell.m in Sources */,
 				77A12BA91E8FA92400E42E05 /* Animations.m in Sources */,
 				772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */,
+				77F945EB1EADF4C6009B6C3E /* MyAccountTableViewCell.m in Sources */,
 				77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */,
 				77B726171E903DAD00739B00 /* User.m in Sources */,
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,
 				7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */,
 				77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */,
 				7714A7111E9246AB0013C5AA /* DialogPickImageViewController.m in Sources */,
+				77F945F11EAE4B8C009B6C3E /* SearchRadiusTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
