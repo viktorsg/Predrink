@@ -24,7 +24,7 @@
     UIBezierPath *fromPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - 0.1, point.y - 0.1, 0.2, 0.2)];
     UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - radius, point.y - radius, radius * 2, radius * 2)];
     [shape setFillColor:color.CGColor];
-    [view.layer addSublayer:shape];
+    [view.layer insertSublayer:shape atIndex:0];
     
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
     anim.fromValue = (id)fromPath.CGPath;

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface SettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
+
+@property (strong, nonatomic) void (^onDismiss)();
 
 @end

@@ -10,6 +10,7 @@
 #import "EventsViewController.h"
 #import "MapViewController.h"
 #import "ProfileViewController.h"
+#import "SettingsViewController.h"
 
 #import "ControlButton.h"
 
@@ -204,6 +205,11 @@
     } else if([segue.destinationViewController isKindOfClass:[ProfileViewController class]]) {
         ProfileViewController *profileViewController = (ProfileViewController *)segue.destinationViewController;
         self.profileViewController = profileViewController;
+    } else if([segue.destinationViewController isKindOfClass:[SettingsViewController class]]) {
+        SettingsViewController *settingsViewController = (SettingsViewController *)segue.destinationViewController;
+        settingsViewController.onDismiss = ^{
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+        };
     }
 }
 

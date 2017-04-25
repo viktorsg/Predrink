@@ -120,6 +120,44 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:1.5 animations:^{
+        self.emojiLogoHeightConstraint.constant = 100;
+        self.emojiLogoWidthConstraint.constant = 160;
+        self.emojiLogoHorizontalConstraint.constant = 0;
+        self.emojiLogoVerticalConstraint.constant = -40;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        if(finished) {
+            self.fbLoginButton.hidden = NO;
+            [self.view layoutIfNeeded];
+            [UIView animateWithDuration:1.2 animations:^{
+                self.fbLoginButton.alpha = 1.0f;
+                [self.view layoutIfNeeded];
+            }];
+        }
+    }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+ 
+    self.fbLoginButton.hidden = NO;
+    [self.loginIndicator stopAnimating];
+    
+    self.emojiLogoHeightConstraint.constant = 120;
+    self.emojiLogoWidthConstraint.constant = 200;
+    self.emojiLogoHorizontalConstraint.constant = self.view.frame.size.width * 0.10;
+    self.emojiLogoVerticalConstraint.constant = 0;
+    
+    self.fbLoginButton.hidden = YES;
+    self.fbLoginButton.alpha = 0.0f;
+    [self.view layoutIfNeeded];
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -129,23 +167,6 @@
         
         [self setupGradient];
         
-        [self.view layoutIfNeeded];
-        [UIView animateWithDuration:1.5 animations:^{
-            self.emojiLogoHeightConstraint.constant = 100;
-            self.emojiLogoWidthConstraint.constant = 160;
-            self.emojiLogoHorizontalConstraint.constant = 0;
-            self.emojiLogoVerticalConstraint.constant = -40;
-            [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            if(finished) {
-                self.fbLoginButton.hidden = NO;
-                [self.view layoutIfNeeded];
-                [UIView animateWithDuration:1.2 animations:^{
-                    self.fbLoginButton.alpha = 1.0f;
-                    [self.view layoutIfNeeded];
-                }];	
-            }
-        }];
     }
 }
 
@@ -199,6 +220,9 @@
 #pragma mark - Custom Functions
 
 - (void)showError:(NSString *)message {
+    self.fbLoginButton.hidden = NO;
+    [self.loginIndicator stopAnimating];
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Predrink" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
     
@@ -214,18 +238,25 @@
     return [NSNumber numberWithInteger:components.year];
 }
 
+#pragma mark - Button Presses
+
 - (IBAction)onFBLoginButtonPressed:(id)sender {
     self.fbLoginButton.hidden = YES;
     [self.loginIndicator startAnimating];
     
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions: @[@"public_profile", @"email", @"user_birthday", @"user_friends"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    loginManager.loginBehavior = FBSDKLoginBehaviorWeb;
+    [loginManager logInWithReadPermissions: @[@"public_profile", @"email", @"user_birthday", @"user_friends"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if(result != nil && error == nil) {
-            [[FIRAuth auth] signInWithCredential:[FIRFacebookAuthProvider credentialWithAccessToken:[[FBSDKAccessToken currentAccessToken] tokenString]] completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-                if(error != nil) {
-                    [self showError:@"Authorization failed"];
-                }
-            }];
+            if(result.declinedPermissions != nil && result.declinedPermissions.count == 0) {
+                [[FIRAuth auth] signInWithCredential:[FIRFacebookAuthProvider credentialWithAccessToken:[[FBSDKAccessToken currentAccessToken] tokenString]] completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+                    if(error != nil) {
+                        [self showError:@"Authorization failed"];
+                    }
+                }];
+            } else {
+                [self showError:@"You have not granted needed permissions"];
+            }
         } else {
             [self showError:@"Facebook login failed"];
         }

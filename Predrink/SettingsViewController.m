@@ -14,15 +14,38 @@
 #import "SettingsTableViewCell.h"
 
 #import "Utils.h"
+#import "Animations.h"
 #import "User.h"
+
+#import <FirebaseAuth/FirebaseAuth.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface SettingsViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *settingsTableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *changeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *changeTextViewCountLabel;
+
+@property (weak, nonatomic) IBOutlet UITextView *changeTextView;
+
+@property (weak, nonatomic) IBOutlet UIView *underlineView;
+
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *changeTextViewHeightConstraint;
+
 @property (strong, nonatomic) NSArray<NSString *> *titlesArray;
+
+@property (assign, nonatomic) BOOL isBioVisible;
+@property (assign, nonatomic) BOOL isFavDrinkVisible;
 
 @end
 
 @implementation SettingsViewController
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +56,92 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark - Custom Functions
+
+- (void)changeHeaderLabel:(NSString *)headerString withChangeLabel:(NSString *)changeString {
+    self.changeLabel.hidden = NO;
+    self.changeTextView.hidden = NO;
+    self.underlineView.hidden = NO;
+    self.saveButton.hidden = NO;
+    self.settingsTableView.hidden = YES;
+    
+    self.headerLabel.text = headerString;
+    self.changeLabel.text = changeString;
+}
+
+- (void)changeBio {
+    self.isBioVisible = YES;
+    
+    [self changeHeaderLabel:@"Bio" withChangeLabel:@"Tell everyone how you feel"];
+    
+    NSString *bio = [User currentUser].bio;
+    self.changeTextView.text = bio;
+    self.changeTextViewCountLabel.text = [NSString stringWithFormat:@"%lu/120", bio.length];
+}
+
+- (void)changeFavouriteDrink {
+    self.isFavDrinkVisible = YES;
+    
+    [self changeHeaderLabel:@"Favourite Drink" withChangeLabel:@"Insert your new favourite drink here"];
+    
+    NSString *favDrink = [User currentUser].favDrink;
+    self.changeTextView.text = favDrink;
+    self.changeTextViewCountLabel.text = [NSString stringWithFormat:@"%lu/15", favDrink.length];
+}
+
+- (void)signOut {
+    NSError *error;
+    [[FIRAuth auth] signOut:&error];
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    [FBSDKProfile setCurrentProfile:nil];
+    if(error == nil) {
+        self.onDismiss();
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        
+    }
+}
+
+#pragma mark - TextView Delegate Methods
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.changeTextViewCountLabel.hidden = NO;
+    
+    self.underlineView.backgroundColor = [Utils colorFromHexString:@"#F44336"];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    } else {
+        if(text.length == 0) {
+            if(textView.text.length != 0) {
+                return YES;
+            }
+        } else if((self.isBioVisible && textView.text.length > 119) || (self.isFavDrinkVisible && textView.text.length > 14)) {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    CGFloat neededHeight = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, MAXFLOAT)].height;
+    if(self.changeTextViewHeightConstraint.constant != neededHeight) {
+        self.changeTextViewHeightConstraint.constant = neededHeight;
+    }
+    
+    if(self.isBioVisible) {
+        self.changeTextViewCountLabel.text = [NSString stringWithFormat:@"%lu/120", textView.text.length];
+    } else {
+        self.changeTextViewCountLabel.text = [NSString stringWithFormat:@"%lu/15", textView.text.length];
+    }
+}
+
+#pragma mark - TableView Delegate Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.titlesArray.count;
@@ -85,16 +194,67 @@
     SettingsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.settingsLabel.text = [self.titlesArray objectAtIndex:row];
+    if(row == 8) {
+        cell.separatorView.hidden = YES;
+    } else {
+        cell.separatorView.hidden = NO;
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    long row = indexPath.row;
     
+    switch (row) {
+        case 1:
+            [self changeBio];
+            break;
+            
+        case 2:
+            [self changeFavouriteDrink];
+            break;
+            
+        case 10:
+            [self signOut];
+            break;
+    }
+}
+
+#pragma mark - Button Clicks
+
+- (IBAction)onSavePressed:(id)sender forEvent:(UIEvent *)event {
+    [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#fAA49E"] forEvent:event];
+    
+    if(self.isBioVisible) {
+        
+    } else if(self.isFavDrinkVisible) {
+        
+    }
 }
 
 - (IBAction)onBackPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if(!self.isBioVisible && !self.isFavDrinkVisible) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        self.headerLabel.text = @"Settings";
+        
+        self.isBioVisible = NO;
+        self.isFavDrinkVisible = NO;
+        
+        self.changeLabel.hidden = YES;
+        self.changeTextView.hidden = YES;
+        self.underlineView.hidden = YES;
+        self.changeTextViewCountLabel.hidden = YES;
+        self.saveButton.hidden = YES;
+        self.settingsTableView.hidden = NO;
+        
+        if([self.changeTextView isFirstResponder]) {
+            [self.changeTextView resignFirstResponder];
+        }
+        
+        self.underlineView.backgroundColor = [Utils colorFromHexString:@"#D2D2D2"];
+    }
 }
 
 /*

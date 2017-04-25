@@ -10,6 +10,8 @@
 
 @interface SettingsTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
+
 @property (weak, nonatomic) IBOutlet UILabel *settingsLabel;
 
 @end

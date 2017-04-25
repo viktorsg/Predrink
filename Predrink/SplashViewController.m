@@ -26,6 +26,10 @@
     [super viewDidLoad];
     
     [FirebaseUtils instantiateDatabse];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     FIRUser *user = [FIRAuth auth].currentUser;
     if(user == nil) {
