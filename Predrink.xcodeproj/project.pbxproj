@@ -69,6 +69,7 @@
 		7714A7101E9246AB0013C5AA /* DialogPickImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogPickImageViewController.m; sourceTree = "<group>"; };
 		77265A351E8E62010023D096 /* DialogLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogLocationViewController.h; sourceTree = "<group>"; };
 		77265A361E8E62010023D096 /* DialogLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogLocationViewController.m; sourceTree = "<group>"; };
+		772D38151EAFBA4D00CA0172 /* Kozuka Gothic Pro L.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kozuka Gothic Pro L.otf"; sourceTree = "<group>"; };
 		772FC2701E8AECC100A885B0 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		772FC2711E8AECC100A885B0 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		772FC2731E8AEDA800A885B0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../Library/Developer/Xcode/DerivedData/Predrink-fhanhtdxwnqkqvcyhezmzfvvrgat/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework"; sourceTree = "<group>"; };
@@ -289,6 +290,7 @@
 				77F121A41E9195E50055797A /* GoogleService-Info.plist */,
 				77F5B0871E717DD500802904 /* Info.plist */,
 				77F5B0821E717DD500802904 /* Assets.xcassets */,
+				772D38151EAFBA4D00CA0172 /* Kozuka Gothic Pro L.otf */,
 			);
 			name = Application;
 			sourceTree = "<group>";

@@ -11,6 +11,6 @@
 @interface ProfileViewController : UIViewController<UIScrollViewDelegate>
 
 - (void)animateMyEventsView;
-- (void)loadInformation;
+- (void)downloadInformation:(BOOL)shouldDownloadFromFirebase;
 
 @end

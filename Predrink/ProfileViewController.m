@@ -67,17 +67,26 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)loadInformation {
-    [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        User *user = [[User alloc] initWithSnapshot:snapshot];
-        [User setCurrentUser:user];
-        
-        self.nameAndAgeLabel.text = [NSString stringWithFormat:@"%@, %@", user.firstName, user.age];
-        self.favDrinkLabel.text = user.favDrink;
-        self.bioLabel.text = user.bio;
-        self.joinedCountLabel.text = [NSString stringWithFormat:@"%d", user.joinedCount.intValue];
-        self.hostedCountLabel.text = [NSString stringWithFormat:@"%d", user.hostedCount.intValue];
-    } withCancelBlock:nil];
+- (void)downloadInformation:(BOOL)shouldDownloadFromFirebase {
+    if(shouldDownloadFromFirebase) {
+        [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            User *user = [[User alloc] initWithSnapshot:snapshot];
+            [User setCurrentUser:user];
+            
+            [self loadContent:user];
+        } withCancelBlock:nil];
+    } else {
+        User *user = [User currentUser];
+        [self loadContent:user];
+    }
+}
+
+- (void)loadContent:(User *)user {
+    self.nameAndAgeLabel.text = [NSString stringWithFormat:@"%@, %@", user.firstName, user.age];
+    self.favDrinkLabel.text = user.favDrink;
+    self.bioLabel.text = user.bio;
+    self.joinedCountLabel.text = [NSString stringWithFormat:@"%d", user.joinedCount.intValue];
+    self.hostedCountLabel.text = [NSString stringWithFormat:@"%d", user.hostedCount.intValue];
 }
 
 - (void)onPageChanged:(int)page {

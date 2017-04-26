@@ -10,6 +10,6 @@
 
 @interface SettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 
-@property (strong, nonatomic) void (^onDismiss)();
+@property (strong, nonatomic) void (^onDismiss)(BOOL shouldLogOut);
 
 @end

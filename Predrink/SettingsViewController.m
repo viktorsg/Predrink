@@ -14,6 +14,7 @@
 #import "SettingsTableViewCell.h"
 
 #import "Utils.h"
+#import "FirebaseUtils.h"
 #import "Animations.h"
 #import "User.h"
 
@@ -59,6 +60,13 @@
 
 #pragma mark - Custom Functions
 
+- (void)showError:(NSString *)errorMessage {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Predrink" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 - (void)changeHeaderLabel:(NSString *)headerString withChangeLabel:(NSString *)changeString {
     self.changeLabel.hidden = NO;
     self.changeTextView.hidden = NO;
@@ -70,7 +78,7 @@
     self.changeLabel.text = changeString;
 }
 
-- (void)changeBio {
+- (void)showBioWindow {
     self.isBioVisible = YES;
     
     [self changeHeaderLabel:@"Bio" withChangeLabel:@"Tell everyone how you feel"];
@@ -78,9 +86,11 @@
     NSString *bio = [User currentUser].bio;
     self.changeTextView.text = bio;
     self.changeTextViewCountLabel.text = [NSString stringWithFormat:@"%lu/120", bio.length];
+    
+    [self calculateTextViewHeight:self.changeTextView];
 }
 
-- (void)changeFavouriteDrink {
+- (void)showFavouriteDrinkWindow {
     self.isFavDrinkVisible = YES;
     
     [self changeHeaderLabel:@"Favourite Drink" withChangeLabel:@"Insert your new favourite drink here"];
@@ -88,6 +98,32 @@
     NSString *favDrink = [User currentUser].favDrink;
     self.changeTextView.text = favDrink;
     self.changeTextViewCountLabel.text = [NSString stringWithFormat:@"%lu/15", favDrink.length];
+    
+    [self calculateTextViewHeight:self.changeTextView];
+}
+
+- (void)calculateTextViewHeight:(UITextView *)textView {
+    CGFloat neededHeight = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, MAXFLOAT)].height;
+    if(self.changeTextViewHeightConstraint.constant != neededHeight) {
+        self.changeTextViewHeightConstraint.constant = neededHeight;
+    }
+}
+
+- (void)updateField:(NSString *)field withValue:(NSString *)value {
+    [[[FirebaseUtils getUsersReference] child:[User currentUser].uid] updateChildValues:@{field : value} withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if(error == nil) {
+            if([field isEqualToString:@"bio"]) {
+                [User currentUser].bio = value;
+            } else {
+                [User currentUser].favDrink = value;
+            }
+            
+            [self.settingsTableView reloadData];
+            [self onBackPressed:self];
+        } else {
+            [self showError:@"Update failed"];
+        }
+    }];
 }
 
 - (void)signOut {
@@ -96,10 +132,10 @@
     [FBSDKAccessToken setCurrentAccessToken:nil];
     [FBSDKProfile setCurrentProfile:nil];
     if(error == nil) {
-        self.onDismiss();
+        self.onDismiss(YES);
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        
+        [self showError:@"Error occured while logging out"];
     }
 }
 
@@ -129,10 +165,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-    CGFloat neededHeight = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, MAXFLOAT)].height;
-    if(self.changeTextViewHeightConstraint.constant != neededHeight) {
-        self.changeTextViewHeightConstraint.constant = neededHeight;
-    }
+    [self calculateTextViewHeight:textView];
     
     if(self.isBioVisible) {
         self.changeTextViewCountLabel.text = [NSString stringWithFormat:@"%lu/120", textView.text.length];
@@ -208,11 +241,11 @@
     
     switch (row) {
         case 1:
-            [self changeBio];
+            [self showBioWindow];
             break;
             
         case 2:
-            [self changeFavouriteDrink];
+            [self showFavouriteDrinkWindow];
             break;
             
         case 10:
@@ -226,15 +259,21 @@
 - (IBAction)onSavePressed:(id)sender forEvent:(UIEvent *)event {
     [Animations rippleEffect:(UIButton *)sender withColor:[Utils colorFromHexString:@"#fAA49E"] forEvent:event];
     
-    if(self.isBioVisible) {
-        
-    } else if(self.isFavDrinkVisible) {
-        
+    if(self.changeTextView.text.length != 0) {
+        if(self.isBioVisible) {
+            //[self updateChildValue:@{@"bio" : self.changeTextView.text}];
+            [self updateField:@"bio" withValue:self.changeTextView.text];
+        } else if(self.isFavDrinkVisible) {
+            [self updateField:@"favDrink" withValue:self.changeTextView.text];
+        }
+    } else {
+        [self showError:@"Field should not be empty"];
     }
 }
 
 - (IBAction)onBackPressed:(id)sender {
     if(!self.isBioVisible && !self.isFavDrinkVisible) {
+        self.onDismiss(NO);
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         self.headerLabel.text = @"Settings";

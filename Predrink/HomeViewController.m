@@ -187,7 +187,7 @@
     
     if(self.profileContainerView.hidden == YES) {
         [self.profileViewController animateMyEventsView];
-        [self.profileViewController loadInformation];
+        [self.profileViewController downloadInformation:YES];
     }
     
     [self customizeButton:2];
@@ -207,8 +207,12 @@
         self.profileViewController = profileViewController;
     } else if([segue.destinationViewController isKindOfClass:[SettingsViewController class]]) {
         SettingsViewController *settingsViewController = (SettingsViewController *)segue.destinationViewController;
-        settingsViewController.onDismiss = ^{
-            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+        settingsViewController.onDismiss = ^(BOOL shouldLogOut) {
+            if(shouldLogOut) {
+                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+            } else {
+                [self.profileViewController downloadInformation:NO];
+            }
         };
     }
 }
