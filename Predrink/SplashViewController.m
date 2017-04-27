@@ -14,6 +14,7 @@
 #import "User.h"
 
 #import "FirebaseUtils.h"
+
 #import <FirebaseAuth/FirebaseAuth.h>
 
 @interface SplashViewController ()
@@ -21,6 +22,8 @@
 @end
 
 @implementation SplashViewController
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];

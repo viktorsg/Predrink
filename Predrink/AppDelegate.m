@@ -36,6 +36,12 @@
     
     [FIRApp configure];
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if(![userDefaults objectForKey:@"radius"]) {
+        [userDefaults setObject:[NSNumber numberWithInt:45] forKey:@"radius"];
+        [userDefaults synchronize];
+    }
+    
     return YES;
 }
 

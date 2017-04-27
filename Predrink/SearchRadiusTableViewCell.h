@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *searchRadiusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *searchKilometersLabel;
 
+@property (weak, nonatomic) IBOutlet UISlider *radiusSlider;
+
 @end

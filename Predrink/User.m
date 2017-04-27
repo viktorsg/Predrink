@@ -78,17 +78,11 @@ static User *currentUser;
 }
 
 + (User *)currentUser {
-    if(currentUser != nil) {
-        return currentUser;
-    } else {
-//        [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//            
-//            User *user = [[User alloc] initWithSnapshot:snapshot];
-//            [User setCurrentUser:user];
-//            
-//            return user;
-//         
-//        }];
+    if(currentUser == nil) {
+        [[[FirebaseUtils getUsersReference] child:[FIRAuth auth].currentUser.uid] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            User *user = [[User alloc] initWithSnapshot:snapshot];
+            [User setCurrentUser:user];
+        }];
     }
     
     return currentUser;

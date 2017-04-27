@@ -25,6 +25,7 @@
 		77B726141E9038CF00739B00 /* FirebaseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B726131E9038CF00739B00 /* FirebaseUtils.m */; };
 		77B726171E903DAD00739B00 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B726161E903DAD00739B00 /* User.m */; };
 		77BB1EA21E9015EA008C86E4 /* MyPlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BB1EA11E9015EA008C86E4 /* MyPlaceTableViewCell.m */; };
+		77E796BA1EB06AA900DCDD14 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E796B91EB06AA900DCDD14 /* WebViewController.m */; };
 		77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EAF3F91E72E28F00B796F9 /* HomeViewController.m */; };
 		77EAF4011E72EEA900B796F9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FD1E72EEA900B796F9 /* FBSDKCoreKit.framework */; };
 		77EAF4021E72EEA900B796F9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EAF3FE1E72EEA900B796F9 /* FBSDKLoginKit.framework */; };
@@ -100,6 +101,8 @@
 		77B726161E903DAD00739B00 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		77BB1EA01E9015EA008C86E4 /* MyPlaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPlaceTableViewCell.h; sourceTree = "<group>"; };
 		77BB1EA11E9015EA008C86E4 /* MyPlaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPlaceTableViewCell.m; sourceTree = "<group>"; };
+		77E796B81EB06AA900DCDD14 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		77E796B91EB06AA900DCDD14 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		77EAF3F81E72E28F00B796F9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		77EAF3F91E72E28F00B796F9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77EAF3FC1E72EEA900B796F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				7786AFB41E8BE60300FBDFD0 /* ProfileViewController.m */,
 				77A427CD1E8ADAB0008CFEB4 /* SettingsViewController.h */,
 				77A427CE1E8ADAB0008CFEB4 /* SettingsViewController.m */,
+				77E796B81EB06AA900DCDD14 /* WebViewController.h */,
+				77E796B91EB06AA900DCDD14 /* WebViewController.m */,
 				777B904A1E8D79DD001C64B7 /* AddEventViewController.h */,
 				777B904B1E8D79DD001C64B7 /* AddEventViewController.m */,
 			);
@@ -592,6 +597,7 @@
 				772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */,
 				77F945EB1EADF4C6009B6C3E /* MyAccountTableViewCell.m in Sources */,
 				77F4FD151E87E8610037FDB6 /* MapViewController.m in Sources */,
+				77E796BA1EB06AA900DCDD14 /* WebViewController.m in Sources */,
 				77B726171E903DAD00739B00 /* User.m in Sources */,
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,
 				7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */,

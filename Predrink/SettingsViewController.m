@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "WebViewController.h"
 
 #import "SettingsHeaderTableViewCell.h"
 #import "MyAccountTableViewCell.h"
@@ -42,6 +43,8 @@
 @property (assign, nonatomic) BOOL isBioVisible;
 @property (assign, nonatomic) BOOL isFavDrinkVisible;
 
+@property (assign, nonatomic) int webViewType;
+
 @end
 
 @implementation SettingsViewController
@@ -67,12 +70,19 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)showChangeWindow:(BOOL)show {
+    self.changeLabel.hidden = !show;
+    self.changeTextView.hidden = !show;
+    self.underlineView.hidden = !show;
+    self.saveButton.hidden = !show;
+    self.settingsTableView.hidden = show;
+    if(!show) {
+        self.changeTextViewCountLabel.hidden = !show;
+    }
+}
+
 - (void)changeHeaderLabel:(NSString *)headerString withChangeLabel:(NSString *)changeString {
-    self.changeLabel.hidden = NO;
-    self.changeTextView.hidden = NO;
-    self.underlineView.hidden = NO;
-    self.saveButton.hidden = NO;
-    self.settingsTableView.hidden = YES;
+    [self showChangeWindow:YES];
     
     self.headerLabel.text = headerString;
     self.changeLabel.text = changeString;
@@ -124,6 +134,21 @@
             [self showError:@"Update failed"];
         }
     }];
+}
+
+- (void)sendEmail {
+    NSString *recipients = [NSString stringWithFormat:@"mailto:%@", @"feedback@getpredrink.com"];
+    NSString *body = @"";
+    
+    NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
+    email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *mailURL = [NSURL URLWithString:email];
+    
+    if([[UIApplication sharedApplication] canOpenURL:mailURL]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+    } else {
+        [self showError:@"Could not open mail client"];
+    }
 }
 
 - (void)signOut {
@@ -186,6 +211,14 @@
     long row = indexPath.row;
     if(row == 1 || row == 2) {
         height = 60.0f;
+        
+        if(row == 1) {
+            CGFloat neededHeight = [[User currentUser].bio boundingRectWithSize:CGSizeMake(self.view.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14.0f]} context:nil].size.height;
+            neededHeight = height - 17 + neededHeight;
+            if(neededHeight > height) {
+                height = neededHeight;
+            }
+        }
     } else if(row == 4) {
         height = 70.0f;
     } else if(row == 6 || row == 7 || row == 8 || row == 10) {
@@ -217,8 +250,11 @@
         
         return cell;
     } else if(row == 4) {
-        SearchRadiusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
+        SearchRadiusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchRadiusCell"];
         cell.searchRadiusLabel.text = [self.titlesArray objectAtIndex:row];
+        int value = [[[NSUserDefaults standardUserDefaults] objectForKey:@"radius"] intValue];
+        cell.radiusSlider.value = value;
+        cell.searchKilometersLabel.text = [NSString stringWithFormat:@"%d km", value];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -246,6 +282,20 @@
             
         case 2:
             [self showFavouriteDrinkWindow];
+            break;
+            
+        case 6:
+            [self sendEmail];
+            break;
+            
+        case 7:
+            self.webViewType = PRIVACY_POLICY;
+            [self performSegueWithIdentifier:@"WebViewSegue" sender:self];
+            break;
+            
+        case 8:
+            self.webViewType = LICENSES;
+            [self performSegueWithIdentifier:@"WebViewSegue" sender:self];
             break;
             
         case 10:
@@ -281,12 +331,7 @@
         self.isBioVisible = NO;
         self.isFavDrinkVisible = NO;
         
-        self.changeLabel.hidden = YES;
-        self.changeTextView.hidden = YES;
-        self.underlineView.hidden = YES;
-        self.changeTextViewCountLabel.hidden = YES;
-        self.saveButton.hidden = YES;
-        self.settingsTableView.hidden = NO;
+        [self showChangeWindow:NO];
         
         if([self.changeTextView isFirstResponder]) {
             [self.changeTextView resignFirstResponder];
@@ -296,14 +341,15 @@
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.destinationViewController isKindOfClass:[WebViewController class]]) {
+        WebViewController *webViewController = (WebViewController *)segue.destinationViewController;
+        webViewController.type = self.webViewType;
+    }
 }
-*/
+
 
 @end

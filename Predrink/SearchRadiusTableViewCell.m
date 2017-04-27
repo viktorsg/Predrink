@@ -19,7 +19,11 @@
 }
 
 - (IBAction)sliderValueDidChange:(id)sender {
-    self.searchKilometersLabel.text = [NSString stringWithFormat:@"%.0f km", ((UISlider *)sender).value]; ;
+    int value = [NSNumber numberWithFloat:((UISlider *)sender).value].intValue;
+    self.searchKilometersLabel.text = [NSString stringWithFormat:@"%d km", value];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:value] forKey:@"radius"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
