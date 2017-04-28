@@ -19,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *leftCircleImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *centerCircleImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *rightCircleImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *uploadFirstImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *uploadSecondImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *uploadThirdImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *uploadFourthImageView;
 
 @property (weak, nonatomic) IBOutlet UIProgressView *topLeftProgressView;
 @property (weak, nonatomic) IBOutlet UIProgressView *topRightProgressView;
@@ -27,13 +31,18 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
+
 @property (assign, nonatomic) long page;
+@property (assign, nonatomic) long imageTappedIndex;
 
 @property (assign, nonatomic) BOOL isForEditingAddress;
 
 @end
 
 @implementation AddEventViewController
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,6 +62,8 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+#pragma mark - Custom Functions
 
 - (void)customizeImageView:(UIImageView *)imageView should:(BOOL)should {
     imageView.backgroundColor = should ? [UIColor clearColor] : [Utils colorFromHexString:@"F44336"];
@@ -95,7 +106,59 @@
     }];
 }
 
-//event place control
+- (void)openCameraImagePicker {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        self.imagePickerController = [[UIImagePickerController alloc] init];
+        self.imagePickerController.view.frame = CGRectMake(0, 50, self.imagePickerController.view.frame.size.width, self.imagePickerController.view.frame.size.height);
+        self.imagePickerController.delegate = self;
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        self.imagePickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        self.imagePickerController.allowsEditing = NO;
+        self.imagePickerController.showsCameraControls = NO;
+        
+        [self addChildViewController:self.imagePickerController];
+        [self.view addSubview:self.imagePickerController.view];
+        
+        [self.view bringSubviewToFront:self.imagePickerController.view];
+    }
+}
+
+- (void)openPhotoLibraryImagePicker {
+    self.imagePickerController = [[UIImagePickerController alloc] init];
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.imagePickerController.allowsEditing = NO;
+    self.imagePickerController.delegate = self;
+    
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - Image Picker Delegate Methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    switch (self.imageTappedIndex) {
+        case 0:
+            self.uploadFirstImageView.image = image;
+            break;
+            
+        case 1:
+            self.uploadSecondImageView.image = image;
+            break;
+            
+        case 2:
+            self.uploadThirdImageView.image = image;
+            break;
+            
+        case 3:
+            self.uploadFourthImageView.image = image;
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Event Place Button Clicks
 
 - (IBAction)onSavePressed:(id)sender forEvent:(UIEvent *)event {
     [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
@@ -119,10 +182,24 @@
     [Animations button:(UIButton *)sender forView:self.view withBackgroundColor:[Utils colorFromHexString:@"80F44336"]];
 }
 
-//event images control
+#pragma mark - Event Image Button Clicks
 
 - (IBAction)onImagePressed:(id)sender {
-    [self performSegueWithIdentifier:@"DialogPickImageSegue" sender:self];
+    UIView *view = ((UITapGestureRecognizer *)sender).view;
+    self.imageTappedIndex = view.tag;
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openCameraImagePicker];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Chose from Photos" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openPhotoLibraryImagePicker];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)onForwardPressed:(id)sender {
@@ -159,6 +236,5 @@
         };
     }
 }
-
 
 @end

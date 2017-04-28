@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEventViewController : UIViewController<UIScrollViewDelegate>
+@interface AddEventViewController : UIViewController<UINavigationControllerDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate>
 
 @end

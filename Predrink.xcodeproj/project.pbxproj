@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		158A62AC32972031935D0FA2 /* Pods_Predrink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954904F984E7365E2F493812 /* Pods_Predrink.framework */; };
-		7714A7111E9246AB0013C5AA /* DialogPickImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7714A7101E9246AB0013C5AA /* DialogPickImageViewController.m */; };
 		77265A371E8E62010023D096 /* DialogLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77265A361E8E62010023D096 /* DialogLocationViewController.m */; };
 		772FC2721E8AECC100A885B0 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772FC2711E8AECC100A885B0 /* SplashViewController.m */; };
 		772FC2741E8AEDA800A885B0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772FC2731E8AEDA800A885B0 /* Bolts.framework */; };
@@ -66,8 +65,6 @@
 
 /* Begin PBXFileReference section */
 		3E3442D93CD19F2E7A84EDC8 /* Pods-Predrink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predrink.release.xcconfig"; path = "Pods/Target Support Files/Pods-Predrink/Pods-Predrink.release.xcconfig"; sourceTree = "<group>"; };
-		7714A70F1E9246AB0013C5AA /* DialogPickImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogPickImageViewController.h; sourceTree = "<group>"; };
-		7714A7101E9246AB0013C5AA /* DialogPickImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogPickImageViewController.m; sourceTree = "<group>"; };
 		77265A351E8E62010023D096 /* DialogLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogLocationViewController.h; sourceTree = "<group>"; };
 		77265A361E8E62010023D096 /* DialogLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogLocationViewController.m; sourceTree = "<group>"; };
 		772D38151EAFBA4D00CA0172 /* Kozuka Gothic Pro L.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kozuka Gothic Pro L.otf"; sourceTree = "<group>"; };
@@ -186,8 +183,6 @@
 			children = (
 				77265A351E8E62010023D096 /* DialogLocationViewController.h */,
 				77265A361E8E62010023D096 /* DialogLocationViewController.m */,
-				7714A70F1E9246AB0013C5AA /* DialogPickImageViewController.h */,
-				7714A7101E9246AB0013C5AA /* DialogPickImageViewController.m */,
 			);
 			name = DialogViewControllers;
 			sourceTree = "<group>";
@@ -602,7 +597,6 @@
 				77F4FD0E1E87952C0037FDB6 /* Utils.m in Sources */,
 				7786AFB51E8BE60300FBDFD0 /* ProfileViewController.m in Sources */,
 				77EAF3FA1E72E28F00B796F9 /* HomeViewController.m in Sources */,
-				7714A7111E9246AB0013C5AA /* DialogPickImageViewController.m in Sources */,
 				77F945F11EAE4B8C009B6C3E /* SearchRadiusTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
