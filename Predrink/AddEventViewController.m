@@ -31,6 +31,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+
+
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 @property (assign, nonatomic) long page;
@@ -156,6 +159,14 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - TextField Delegate Methods
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if(textField == self.titleTextField) {
+        
+    }
 }
 
 #pragma mark - Event Place Button Clicks
