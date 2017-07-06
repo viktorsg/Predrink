@@ -94,8 +94,8 @@
             animationTransitioning.animationOption = UIViewAnimationOptionTransitionCrossDissolve;
         }
     }
-    return animationTransitioning;
     
+    return animationTransitioning;
 }
 
 

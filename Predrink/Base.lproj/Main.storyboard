@@ -1816,7 +1816,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOSTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baV-yo-34b">
-                                                        <rect key="frame" x="216.5" y="229" width="56" height="15"/>
+                                                        <rect key="frame" x="216" y="229" width="56" height="15"/>
                                                         <fontDescription key="fontDescription" name="KozGoPro-Light" family="Kozuka Gothic Pro" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
